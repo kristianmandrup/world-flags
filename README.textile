@@ -1,0 +1,46 @@
+h1. The flags of the world as a sprite for use with Rails 
+
+Includes css files for size 16 and 32 pixels and have all the worlds' flags.
+
+h2. Configuration
+
+In you asset application config:
+
+require flags/flags16
+
+h2. Example usage:
+
+Note that the ruby examples uses HAML syntax
+
+In the head of your view or layout file:
+
+= stylesheet_link_tag 'flags16'
+
+or using a helper
+
+= use_flags(16)
+
+Flags will be rendered in HTML as:
+
+<pre>
+<ul class="f32">
+  <li class="flag ar">Argentina</li>
+  <li class="flag au">Australia</li>
+  <li class="flag at">Austria</li>
+...
+</ul>
+</pre>
+
+The countries corresponding to the codes can be found at "http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2":http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+
+You can also use built in helper methods:
+
+= flags_list 16 do
+	= flags :ar => 'Argentina', :en => 'England'
+
+Alternatively
+
+= flags_list 32 do
+	= flag :ar, 'Argentina'
+
+See "the cheese wiki":http://www.cheesewiki.com/ for an example

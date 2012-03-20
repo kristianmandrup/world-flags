@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "world-flags"
   gem.homepage = "http://github.com/kristianmandrup/world-flags"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{World flags as sprites}
+  gem.description = %Q{Use world flag icons in your Rails app}
   gem.email = "kmandrup@gmail.com"
   gem.authors = ["Kristian Mandrup"]
   # dependencies defined in Gemfile
