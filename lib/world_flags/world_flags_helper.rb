@@ -8,6 +8,7 @@ module WorldFlagsHelper
 		raise "Supported sizes are only #{WorldFlagsHelper.flag_sizes}" unless WorldFlagsHelper.flag_sizes.include?(size.to_i)
 		content_tag :ul, yield, :class => "f#{size}"
 	end
+	alias_method :flag_list, :flags_list
 
 	def flags flags_hash
 		flags_hash.inject("") do |res, element|

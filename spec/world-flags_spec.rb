@@ -10,6 +10,12 @@ describe WorldFlagsHelper do
     output.should == "<ul class=\"f16\"></ul>"
   end
 
+  it "should work with alias :flag_list" do
+    output = flag_list do
+    end
+    output.should == "<ul class=\"f16\"></ul>"
+  end
+
   it "should set size to 16 or 32" do
     lambda do flags_list(8) { }    	
     end.should raise_error
