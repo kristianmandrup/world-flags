@@ -35,8 +35,7 @@ Flags will be rendered in HTML as:
 <pre>
 <ul class="f32">
   <li class="flag ar">Argentina</li>
-  <li class="flag au">Australia</li>
-  <li class="flag at">Austria</li>
+  <li class="flag gb">England</li>
 ...
 </ul>
 </pre>
@@ -48,17 +47,17 @@ h2. Use
 You can also use built in helper methods:
 
 = flag_list 16 do
-	= flags :ar => 'Argentina', :en => 'England'
+	= flags :ar => 'Argentina', :gb => 'England'
 
 Alternatively
 
 = flags_list 32 do
-	= flag(:ar, 'Argentina') + flag(:en, 'England')
+	= flag(:ar, 'Argentina') + flag(:gb, 'England')
 
 For use with tooltips (see example below):
 
 = flags_list 32 do
-	= flags_title(:ar => 'Argentina', :br => 'Brazil') + flag_title(:en, 'England')
+	= flags_title(:ar => 'Argentina', :br => 'Brazil') + flag_title(:gb, 'England')
 
 The flag_title will render the following list item:
 
@@ -121,7 +120,7 @@ Layout file:
 			%ul.f32
 				%li.flag.ar{:title => 'Argentina'}
 					&nbsp;
-				%li.flag.en{:title => 'England'}
+				%li.flag.gb{:title => 'England'}
 					&nbsp;
 		%p.clear
 		= yield
