@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -26,11 +26,16 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/world-flags.rb",
+    "lib/world_flags/rails_plugin/engine.rb",
     "lib/world_flags/world_flags_helper.rb",
     "spec/spec_helper.rb",
     "spec/world-flags_spec.rb",
     "vendor/assets/images/flags/flags16.png",
     "vendor/assets/images/flags/flags32.png",
+    "vendor/assets/stylesheets/flags/flags16.css.erb",
+    "vendor/assets/stylesheets/flags/flags16.css.scss.erb",
+    "vendor/assets/stylesheets/flags/flags32.css.erb",
+    "vendor/assets/stylesheets/flags/flags32.css.scss.erb",
     "world-flags.gemspec"
   ]
   s.homepage = "http://github.com/kristianmandrup/world-flags"
