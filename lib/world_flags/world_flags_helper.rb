@@ -24,11 +24,11 @@ module WorldFlagsHelper
 	end
 
 	def flag code, name
-		content_tag :li,  name.html_safe, :class => "flag #{code}"
+		content_tag :li,  name.html_safe, :class => "flag #{code}", :'data-country' => name, :'data-cc' => code
 	end
 
 	def flag_title code, name
-		content_tag :li,  '&nbsp;'.html_safe, :class => "flag #{code}", :title => name
+		content_tag :li,  '&nbsp;'.html_safe, :class => "flag #{code}", :title => name, :lang => code
 	end
 
 	def use_flags size = 16

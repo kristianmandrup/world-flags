@@ -34,8 +34,8 @@ Flags will be rendered in HTML as:
 
 <pre>
 <ul class="f32">
-  <li class="flag ar">Argentina</li>
-  <li class="flag gb">England</li>
+  <li class="flag ar" data-cc="ar" data-country="Argentina">Argentina</li>
+  <li class="flag gb" data-cc="gb" data-country="England">England</li>
 ...
 </ul>
 </pre>
@@ -61,7 +61,7 @@ For use with tooltips (see example below):
 
 The flag_title will render the following list item:
 
-<li class="flag ar" title="Argentina">&nbsp;</li>
+<li class="flag ar" lang="ar" title="Argentina">&nbsp;</li>
 
 The &nbsp; is needed in order for the background (flag icon) to have something to be displayed against.
 
@@ -117,11 +117,8 @@ Layout file:
 		= link_to "Sign up", new_user_registration_path
 
 		#languages
-			%ul.f32
-				%li.flag.ar{:title => 'Argentina'}
-					&nbsp;
-				%li.flag.gb{:title => 'England'}
-					&nbsp;
+			= flags_list 32 do
+				= flags_title :ar => 'Argentina', :gb => 'England'
 		%p.clear
 		= yield
 
