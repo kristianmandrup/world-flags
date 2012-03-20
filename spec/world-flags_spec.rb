@@ -34,6 +34,18 @@ describe WorldFlagsHelper do
     output.should == "<ul class=\"f32\"><li class=\"flag ar\">Argentina</li><li class=\"flag en\">England</li></ul>"
   end
 
+  it "should list flags" do
+    output = flag_title :ar, 'Argentina'
+    output.should == "<li class=\"flag ar\" title=\"Argentina\">&nbsp;</li>"
+  end
+
+  it "should list flags" do
+    output = flags_list 32 do
+    	flags_title :ar => 'Argentina'
+    end
+    output.should == "<ul class=\"f32\"><li class=\"flag ar\" title=\"Argentina\">&nbsp;</li></ul>"
+  end
+
   it "should list flags combined" do
     output = flags_list 32 do
     	[flags(:ar => 'Argentina', :en => 'England'), flag(:br, 'Brazil')].join.html_safe 

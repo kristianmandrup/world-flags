@@ -25,17 +25,12 @@ Gem::Specification.new do |s|
     "README.textile",
     "Rakefile",
     "VERSION",
-    "lib/rails_plugin/engine.rb",
     "lib/world-flags.rb",
     "lib/world_flags/world_flags_helper.rb",
     "spec/spec_helper.rb",
     "spec/world-flags_spec.rb",
     "vendor/assets/images/flags/flags16.png",
     "vendor/assets/images/flags/flags32.png",
-    "vendor/assets/stylesheets/flags/flags16.css",
-    "vendor/assets/stylesheets/flags/flags16.scss",
-    "vendor/assets/stylesheets/flags/flags32.css",
-    "vendor/assets/stylesheets/flags/flags32.scss",
     "world-flags.gemspec"
   ]
   s.homepage = "http://github.com/kristianmandrup/world-flags"

@@ -4,11 +4,15 @@ Includes css files for size 16 and 32 pixels and have all the worlds' flags.
 
 h2. Configuration
 
-In you asset application config:
+In you asset application.css manifest file:
 
-require flags/flags16
+*/
+ *= require_self
+ *= require_tree .
+ *= require flags/flags32
+*/
 
-h2. Example usage:
+h2. Alternative config
 
 Note that the ruby examples uses HAML syntax
 
@@ -19,6 +23,12 @@ In the head of your view or layout file:
 or using a helper
 
 = use_flags(16)
+
+Alternatively for the 32 width flags
+
+= use_flags 32
+
+h2. Rendering
 
 Flags will be rendered in HTML as:
 
@@ -33,14 +43,86 @@ Flags will be rendered in HTML as:
 
 The countries corresponding to the codes can be found at "http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2":http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
+h2. Use
+
 You can also use built in helper methods:
 
-= flags_list 16 do
+= flag_list 16 do
 	= flags :ar => 'Argentina', :en => 'England'
 
 Alternatively
 
 = flags_list 32 do
-	= flag :ar, 'Argentina'
+	= flag(:ar, 'Argentina') + flag(:en, 'England')
 
-See "the cheese wiki":http://www.cheesewiki.com/ for an example
+For use with tooltips (see example below):
+
+= flags_list 32 do
+	= flags_title(:ar => 'Argentina', :br => 'Brazil') + flag_title(:en, 'England')
+
+The flag_title will render the following list item:
+
+<li class="flag ar" title="Argentina">&nbsp;</li>
+
+The &nbsp; is needed in order for the background (flag icon) to have something to be displayed against.
+
+h2. Nice effects
+
+CSS config:
+
+ul.f32 {
+	list-style-type: none;
+	padding: 0;
+	margin-left: 0;
+
+	li.flag {
+		float:left;
+		padding-bottom: 10px;
+		padding-right: 32px;
+		cursor: pointer;
+	}
+}
+
+#languages {
+	float: right;
+}
+
+p.clear { 
+	clear:both; 
+}
+
+.tooltip {
+  display:none;
+  background: white;
+  border: 1px solid black;
+  font-size:14px;
+  font-weight: bold;
+  text-align: center;
+  height:16px;
+  width:120px;
+  padding:10px;
+  color: black;
+}
+
+Tooltip script:
+
+http://jquerytools.org/demos/tooltip/index.html
+
+$("li.flag[title]").tooltip()
+
+Layout file:
+
+%body
+	.main
+		= link_to "Sign un", new_user_session_path
+		= link_to "Sign up", new_user_registration_path
+
+		#languages
+			%ul.f32
+				%li.flag.ar{:title => 'Argentina'}
+					&nbsp;
+				%li.flag.en{:title => 'England'}
+					&nbsp;
+		%p.clear
+		= yield
+
