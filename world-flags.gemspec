@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -35,7 +35,8 @@ Gem::Specification.new do |s|
     "vendor/assets/stylesheets/flags/flags16.css",
     "vendor/assets/stylesheets/flags/flags16.scss",
     "vendor/assets/stylesheets/flags/flags32.css",
-    "vendor/assets/stylesheets/flags/flags32.scss"
+    "vendor/assets/stylesheets/flags/flags32.scss",
+    "world-flags.gemspec"
   ]
   s.homepage = "http://github.com/kristianmandrup/world-flags"
   s.licenses = ["MIT"]
