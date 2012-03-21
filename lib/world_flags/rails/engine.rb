@@ -1,8 +1,7 @@
 module WorldFlags
   module Rails
     class Engine < ::Rails::Engine
-    	
-
+        
     	initializer "setup for rails" do
     		puts "WorldFlags engine loaded"
     		WorldFlags::Rails::Engine.add_view_ext

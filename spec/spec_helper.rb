@@ -11,6 +11,8 @@ require 'action_view/template'
 require 'rspec'
 require 'world-flags'
 
+# WorldFlags::Rails::Engine.add_view_ext
+
 module ControllerTestHelpers
 
   def self.included(base)
