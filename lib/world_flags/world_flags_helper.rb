@@ -1,6 +1,6 @@
 module WorldFlagsHelper
 	def self.flag_sizes
-		[16, 32]
+		[16, 32, 64]
 	end
 
 	def flags_list size = 16, &block
@@ -11,9 +11,9 @@ module WorldFlagsHelper
 	end
 	alias_method :flag_list, :flags_list
 
-	def flags flags_hash
+	def flags flags_hash, display = false
 		flags_hash.inject("") do |res, element|
-			res << flag(element.first, element.last)
+			res << flag(element.first, element.last, display)
 		end.html_safe
 	end
 
@@ -23,12 +23,14 @@ module WorldFlagsHelper
 		end.html_safe
 	end
 
-	def flag code, name
-		content_tag :li,  name.html_safe, :class => "flag #{code}", :'data-country' => name, :'data-cc' => code
+	def flag code, name, display = false
+		label = display ? name : '&nbsp;'
+		content_tag :li,  label.html_safe, :class => "flag #{code}", :'data-country' => name, :'data-cc' => code
 	end
 
-	def flag_title code, name
-		content_tag :li,  '&nbsp;'.html_safe, :class => "flag #{code}", :title => name, :lang => code
+	def flag_title code, name, display = false
+		label = display ? name : '&nbsp;'
+		content_tag :li,  label.html_safe, :class => "flag #{code}", :title => name, :'data-cc' => code
 	end
 
 	def use_flags size = 16

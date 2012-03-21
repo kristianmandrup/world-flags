@@ -10,7 +10,24 @@ In you asset application.css manifest file:
  *= require_self
  *= require_tree .
  *= require flags/flags32
+ *= require flags/flags32_semi
 */
+
+There is also support for semi-transparent flags. This can be used to fade certain flags while having the selected flag (or hovered over flag) in full brightness.
+
+Simply add or remove the "semi" class for the flag to adjust the brightness level (fx for selection/mouse over).
+
+$("li.flag['data-cc'=dk).addClass('semi');
+
+$("li.flag['data-cc'=dk).removeClass('semi');
+
+*/
+ *= require_self
+ *= require_tree .
+ *= require flags/flags32
+ *= require flags/flags32
+*/
+
 
 h2. Alternative config
 
@@ -44,6 +61,8 @@ The countries corresponding to the codes can be found at "http://en.wikipedia.or
 
 h2. Use
 
+WorldFlags supports flag sizes in 16, 32 and 64 pixels (size).
+
 You can also use built in helper methods:
 
 = flag_list 16 do
@@ -65,6 +84,35 @@ The flag_title will render the following list item:
 
 The &nbsp; is needed in order for the background (flag icon) to have something to be displayed against.
 
+h2. Get client country code (browser and geo)
+
+A small helper module is provided that can be inserted into a Controller or wherever you see fit
+
+* ip_country_code
+* browser_locale
+
+class MainController < ApplicationController
+  def home
+  	@json = Property.all.to_gmaps4rails
+    @country_code = WorldFlags::Geo.ip_country_code
+  end
+end
+
+Alternatively you can include the modules directly into the controller:
+
+class MainController < ApplicationController
+	include WorldFlags::Geo
+	include WorldFlags::Browser
+
+  def home
+  	@json = Property.all.to_gmaps4rails
+    @country_code = ip_country_code
+    @locale = browser_locale
+  end
+end
+
+For convenience you can also include WorldFlags::All to include all these modules
+
 h2. Nice effects
 
 CSS config:
@@ -76,9 +124,10 @@ ul.f32 {
 
 	li.flag {
 		float:left;
-		padding-bottom: 10px;
-		padding-right: 32px;
-		cursor: pointer;
+		padding-bottom: 6px;
+		padding-right: 26px;
+		margin-right: 8px;
+		background-position: center; 
 	}
 }
 
@@ -113,11 +162,11 @@ Layout file:
 
 %body
 	.main
-		= link_to "Sign un", new_user_session_path
+		= link_to "Sign in", new_user_session_path
 		= link_to "Sign up", new_user_registration_path
 
 		#languages
-			= flags_list 32 do
+			= flags_list 64 do
 				= flags_title :ar => 'Argentina', :gb => 'England'
 		%p.clear
 		= yield

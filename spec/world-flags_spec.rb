@@ -36,14 +36,14 @@ describe WorldFlagsHelper do
 
   it "should list flags" do
     output = flag_title :ar, 'Argentina'
-    output.should == "<li class=\"flag ar\" lang=\"ar\" title=\"Argentina\">&nbsp;</li>"
+    output.should == "<li class=\"flag ar\" data-cc=\"ar\" title=\"Argentina\">&nbsp;</li>"
   end
 
   it "should list flags" do
     output = flags_list 32 do
     	flags_title :ar => 'Argentina'
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" lang=\"ar\" title=\"Argentina\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" title=\"Argentina\">&nbsp;</li></ul>"
   end
 
   it "should list flags combined" do
