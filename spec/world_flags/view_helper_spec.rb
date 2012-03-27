@@ -31,7 +31,7 @@ describe WorldFlags::ViewHelper do
     output = flags_list 32 do
     	flags :ar => 'Argentina', :gb => 'England'
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country=\"Argentina\">Argentina</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"England\">England</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"England\">&nbsp;</li></ul>"
   end
 
   it "should list flags" do
@@ -50,7 +50,7 @@ describe WorldFlags::ViewHelper do
     output = flags_list 32 do
     	[flags(:ar => 'Argentina', :gb => 'England'), flag(:br, 'Brazil')].join.html_safe 
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country=\"Argentina\">Argentina</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"England\">England</li><li class=\"flag br\" data-cc=\"br\" data-country=\"Brazil\">Brazil</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"England\">&nbsp;</li><li class=\"flag br\" data-cc=\"br\" data-country=\"Brazil\">&nbsp;</li></ul>"
   end
 end
 

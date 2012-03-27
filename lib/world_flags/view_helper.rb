@@ -6,7 +6,7 @@ module WorldFlags
 
 		def flags_list size = 16, &block
 			raise "Missing block" unless block_given?
-			raise "Supported sizes are only #{WorldFlagsHelper.flag_sizes}" unless WorldFlagsHelper.flag_sizes.include?(size.to_i)
+			raise "Supported sizes are only #{WorldFlags::ViewHelper.flag_sizes}" unless WorldFlags::ViewHelper.flag_sizes.include?(size.to_i)
 			content = capture(&block)
 			content_tag :ul, content, :class => "f#{size}"
 		end
