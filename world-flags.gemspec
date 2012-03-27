@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.1.4"
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = "2012-03-21"
+  s.date = "2012-03-27"
   s.description = "Use world flag icons in your Rails app"
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
@@ -53,7 +53,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/kristianmandrup/world-flags"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.10"
+  s.rubygems_version = "1.8.20"
   s.summary = "World flags as sprites"
 
   if s.respond_to? :specification_version then
