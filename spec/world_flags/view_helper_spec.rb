@@ -27,30 +27,37 @@ describe WorldFlags::ViewHelper do
     output.should == "<ul class=\"f32\"></ul>"
   end
 
-  it "should list flags" do
+  it "should list flags using Hash arg" do
     output = flags_list 32 do
     	flags :ar => 'Argentina', :gb => 'England'
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"England\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"England\">&nbsp;</li></ul>"
+  end
+
+  it "should list flags using Array" do
+    output = flags_list 32 do
+      flags [:ar, :gb]
+    end
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentinian Spanish\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"British English\">&nbsp;</li></ul>"
   end
 
   it "should list flags" do
     output = flag_title :ar, 'Argentina'
-    output.should == "<li class=\"flag ar\" data-cc=\"ar\" title=\"Argentina\">&nbsp;</li>"
+    output.should == "<li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" title=\"Argentina\">&nbsp;</li>"
   end
 
   it "should list flags" do
     output = flags_list 32 do
     	flags_title :ar => 'Argentina'
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" title=\"Argentina\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" title=\"Argentina\">&nbsp;</li></ul>"
   end
 
   it "should list flags combined" do
     output = flags_list 32 do
     	[flags(:ar => 'Argentina', :gb => 'England'), flag(:br, 'Brazil')].join.html_safe 
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"England\">&nbsp;</li><li class=\"flag br\" data-cc=\"br\" data-country=\"Brazil\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"England\">&nbsp;</li><li class=\"flag br \" data-cc=\"br\" data-country=\"Brazil\">&nbsp;</li></ul>"
   end
 end
 

@@ -4,6 +4,12 @@ module WorldFlags
 			[16, 32, 64]
 		end
 
+		# define more mappings by setting WorldFlags.locale_flag_map to a Hash map
+		# http://en.wikipedia.org/wiki/ISO_639-1_language_matrix
+		def flag_code code
+			WorldFlags.flag_code code
+		end
+
 		def flags_list size = 16, &block
 			raise "Missing block" unless block_given?
 			raise "Supported sizes are only #{WorldFlags::ViewHelper.flag_sizes}" unless WorldFlags::ViewHelper.flag_sizes.include?(size.to_i)
@@ -12,26 +18,43 @@ module WorldFlags
 		end
 		alias_method :flag_list, :flags_list
 
-		def flags flags_hash, display = false
-			flags_hash.inject("") do |res, element|
-				res << flag(element.first, element.last, display)
+		# http://en.wikipedia.org/wiki/ISO_639-1_language_matrix
+
+		# should look up translation for each code
+		def flags flags_arr, options = {}
+			flags_arr.inject("") do |res, elem|
+				case elem
+				when Array
+					code = elem.first
+					name = elem.last
+				when String, Symbol
+					code = elem
+					name = WorldFlags.label(code, options)
+				else
+					raise ArgumentError, "Bad argument: #{flags_arr}, must be Hash or Array"
+				end				
+				res << flag(code, name, options)
 			end.html_safe
 		end
 
-		def flags_title flags_hash
-			flags_hash.inject("") do |res, element|
-				res << flag_title(element.first, element.last)
-			end.html_safe
+		def flags_title flags_arr, options = {}
+			flags flags_arr, options.merge(:title => true)
 		end
 
-		def flag code, name, display = false
-			label = display ? name : '&nbsp;'
-			content_tag :li,  label.html_safe, :class => "flag #{code}", :'data-country' => name, :'data-cc' => code
+		def flag code, name, options = {}
+			label = options[:content] ? name : '&nbsp;'
+			extra_options = options[:title] ? {:title => name } : {}			
+			selected = flag_selected?(code, options) ? 'selected' : ''
+			content_tag :li,  label.html_safe, {:class => "flag #{code} #{selected}", :'data-country' => name, :'data-cc' => code}.merge(options[:html] || {}).merge(extra_options)
 		end
 
-		def flag_title code, name, display = false
-			label = display ? name : '&nbsp;'
-			content_tag :li,  label.html_safe, :class => "flag #{code}", :title => name, :'data-cc' => code
+		def flag_selected? code, options = {}
+			selected = options[:selected] || options[code.to_sym]
+			selected ||= (flag_code(I18n.locale.to_sym) == code.to_sym) if WorldFlags.auto_select?
+		end
+
+		def flag_title code, name, options = {}
+			flag code, name, options.merge(:title => true)
 		end
 
 		def use_flags size = 16

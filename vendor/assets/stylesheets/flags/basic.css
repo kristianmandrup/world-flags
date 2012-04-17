@@ -1,0 +1,31 @@
+#languages {
+	float: right;
+}
+
+#languages ul {
+	list-style-type: none;
+	padding: 0;
+	margin-left: 0;
+}
+
+#languages li.flag {
+	float:left;
+	border: 1px solid none;
+}
+
+#languages li.flag.selected {
+	float:left;
+	border: 1px solid black;
+}
+#languages .f32 li.flag {
+	padding-bottom: 6px;
+	padding-right: 26px;
+	margin-right: 8px;			
+}
+
+#languages .f64 li.flag {
+	padding-top: 12px;
+	padding-bottom: 24px;
+	padding-right: 60px;
+	margin-right: 8px;
+}

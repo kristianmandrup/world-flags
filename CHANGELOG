@@ -1,0 +1,11 @@
+## 0.2.0
+
+Lots of new features, including:
+
+- locale helper for use in Controllers
+- localization/translations of countries and languages
+- auto-selection of flag class, for flag matching current locale
+- manually set which flag is to be selected
+- and much more...
+
+
