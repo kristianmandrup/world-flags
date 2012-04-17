@@ -42,8 +42,25 @@ module WorldFlags
 		end
 
 		def flag code, name, options = {}
-			label = options[:content] ? name : '&nbsp;'
-			extra_options = options[:title] ? {:title => name } : {}			
+			label = case options[:content]
+			when true 
+				name
+			when String
+				options[:content]
+			else
+				'&nbsp;'
+			end
+
+			title = case options[:title]
+			when true
+				name
+			when String
+				options[:title]
+			else
+				nil
+			end
+
+			extra_options = title ? {:title => title } : {}			
 			selected = flag_selected?(code, options) ? 'selected' : ''
 			content_tag :li,  label.html_safe, {:class => "flag #{code} #{selected}", :'data-country' => name, :'data-cc' => code}.merge(options[:html] || {}).merge(extra_options)
 		end

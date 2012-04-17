@@ -108,6 +108,10 @@ The flag_title will render the following list item:
 
 Note: The `&nbsp; is needed in order for the background (flag icon) to have something to be displayed against.
 
+The :title and :content can also be set to a string which is then displayed
+
+= flag :ar, :title => 'Argentina is the best', :content => 'Argh!'
+
 To also get content rendered for the <li>
 
 	= flags [:ar, :br, :gb], :content => true
