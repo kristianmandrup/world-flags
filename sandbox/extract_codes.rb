@@ -41,7 +41,7 @@ content = File.open('country_codes_table.html').read #_lines[0..20].join
 
 codes = content.scan(/tt>(\w+)<\/tt/m)
 
-names = content.scan(/title="([\w|\s|\'|\-]+)"/m)
+names = content.scan(/title="([\w|\s|\'|\-|\,]+)"/m)
 
 zipped = codes.zip(names)
 
@@ -51,12 +51,9 @@ zipped.each do |pair|
 	hash[pair.first.to_s.downcase] = pair.last
 end
 
-puts hash
+json = JSON.pretty_generate(hash)
 
-# File.open('ISO-3166-2_codes.en.json', 'w+') do |f|
-# 	f.puts hash.to_json
-# end
+File.open('ISO-3166-2_codes.en.json', 'w+') do |f|
+	f.puts json
+end
 
-# matches = content.scan(/tt>(\w+)<\/tt.*title="(\w+)"/m).each do |e|
-# 	puts e
-# end

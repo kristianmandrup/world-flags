@@ -135,6 +135,8 @@ Use danish (da) language labels
 = flag_list 32 do
 	= flags [:ar, :br, :gb], :language => I18n.locale
 
+Note: In the config folder there is now a json file with all the english ISO-3166-2 code translations ready for use. You can make similar locale files for other locales/languages.
+
 h2. Get client country code (browser and geo)
 
 A small helper module is provided that can be inserted into a Controller or wherever you see fit
