@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.2.3"
+  s.version = "0.2.4"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
     "LICENSE.txt",
-    "README.textile"
+    "README.md"
   ]
   s.files = [
     ".document",
@@ -23,10 +23,10 @@ Gem::Specification.new do |s|
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
-    "README.textile",
+    "README.md",
     "Rakefile",
     "VERSION",
-    "config/country_codes/iso-3166-2.en.json",
+    "app/config/country_codes/iso-3166-2.en.json",
     "lib/world-flags.rb",
     "lib/world_flags/countries.rb",
     "lib/world_flags/languages.rb",
