@@ -1,13 +1,12 @@
-h1. The flags of the world as a sprite for use with Rails 
+# Country or language selection with Flag icons
 
-Includes css files for size 16 and 32 pixels and have all the worlds' flags.
+This gem can be used with Rails 3. It includes css files for size 16 and 32 pixels and have all the worlds' flags. See http://spritegen.website-performance.org/
 
-See http://spritegen.website-performance.org/
+## Configuration
 
-h2. Configuration
+In you asset `application.css` manifest file:
 
-In you asset application.css manifest file:
-
+```css
 */
  *= require_self
  *= require_tree .
@@ -15,6 +14,7 @@ In you asset application.css manifest file:
  *= require flags/flags32
  *= require flags/flags32_semi
 */
+```
 
 The `flags/basic` stylesheet sets up a basic css for use with borders around the 32 and 64 pixel flag images (to mark selected language). Use this css as inspiration and customize by overriding styles as needed.
 
@@ -22,35 +22,43 @@ There is also support for semi-transparent flags. This can be used to fade certa
 
 Simply add or remove the "semi" class for the flag to adjust the brightness level (fx for selection/mouse over).
 
+```javascript
 $("li.flag['data-cc'=dk).addClass('semi');
-
 $("li.flag['data-cc'=dk).removeClass('semi');
+```
 
+```css
 */
  *= require_self
  *= require_tree .
  *= require flags/flags32
  *= require flags/flags62
 */
+```
 
-
-h2. Alternative config
+## Alternative config
 
 Note that the ruby examples uses HAML syntax
 
 In the head of your view or layout file:
 
+```haml
 = stylesheet_link_tag 'flags16'
+```
 
 or using a helper
 
+```haml
 = use_flags(16)
+```
 
 Alternatively for the 32 width flags
 
+```haml
 = use_flags 32
+```
 
-h2. Configuring localization
+## Configuring localization
 
 You can setup WorldFlags to use a localization map for the labels of the flag icons
 
@@ -60,15 +68,18 @@ WorldFlags.countries = some_country_hash # fx loaded from a yaml file
 Notice that it is a locale code pointing to a map of ISO_3166-1_alpha-2 codes 
 to labels for that locale.
 
+```json
 {
 	:en => {:gb => 'English', :dk => 'Danish'}
 	:da => {:gb => 'Engelsk', :dk => 'Dansk'}
 }
+```
 
-h2. Rendering
+## Rendering
 
 Flags will be rendered in HTML as:
 
+```html
 <pre>
 <ul class="f32">
   <li class="flag ar" data-cc="ar" data-country="Argentina">Argentina</li>
@@ -76,83 +87,108 @@ Flags will be rendered in HTML as:
 ...
 </ul>
 </pre>
+```
 
 The countries corresponding to the codes can be found at "http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2":http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
 
-h2. Use
+## Use
 
 WorldFlags supports flag sizes in 16, 32 and 64 pixels (size).
 
 You can also use built in helper methods:
 
+```haml
 = flag_list 16 do
 	= flags [:ar, :gb], :selected => :gb
+```
 
 Alternatively
 
+```haml
 = flag_list 32 do
-	= flag(:ar) + flag(:gb, :selected => true)
+	= flag(:ar)
+	= flag(:gb, :selected => true)
+```
 
 Or using the #flag_code helper
 
+```haml
 	= flag(:ar) + flag(:gb, :selected => flag_code(I18n.locale)
+```
 
 For use with tooltips or similar js plguins, it can be useful to set the <li> title attribute:
 
+```haml
 = flag_list 32 do
 	= flags [:ar, :br, :gb], :title => true
+```
 
 The flag_title will render the following list item:
 
+```html
 <li class="flag ar" lang="ar" title="Argentina">&nbsp;</li>
+```
 
 Note: The `&nbsp; is needed in order for the background (flag icon) to have something to be displayed against.
 
 The :title and :content can also be set to a string which is then displayed
 
+```haml
 = flag :ar, :title => 'Argentina is the best', :content => 'Argh!'
+```
 
 To also get content rendered for the <li>
 
+```haml
 	= flags [:ar, :br, :gb], :content => true
+```
 
 Note: There is also a #flag_selected? helper, which is (and/or can be) used to determine if the flag to be drawn should have the "selected" class set)
 The auto-select feature is by default turned off, but can be turned on/off using:
 
+```ruby
 WorldFlags.auto_select = true # or WorldFlags.auto_select!
+```
 
-h2. Using localization
+## Using localization
 
 You can specify whether to look up labels for the flags for either language or country and for which locale to look up the labels (see Configuring localization)
 
 Use danish (da) country labels
 
+```haml
 = flag_list 32 do
 	= flags [:ar, :br, :gb], :country => :da
+```
 
 Use danish (da) language labels
 
+```haml
 = flag_list 32 do
 	= flags [:ar, :br, :gb], :language => I18n.locale
+```
 
 Note: In the config folder there is now a json file with all the english ISO-3166-2 code translations ready for use. You can make similar locale files for other locales/languages.
 
-h2. Get client country code (browser and geo)
+h## Get client country code (browser and geo)
 
 A small helper module is provided that can be inserted into a Controller or wherever you see fit
 
 * ip_country_code
 * browser_locale
 
+```ruby
 class MainController < ApplicationController
   def home
   	@json = Property.all.to_gmaps4rails
     @country_code = WorldFlags::Geo.ip_country_code
   end
 end
+```
 
 Alternatively you can include the modules directly into the controller:
 
+```ruby
 class MainController < ApplicationController
 	include WorldFlags::Geo
 	include WorldFlags::Browser
@@ -163,34 +199,42 @@ class MainController < ApplicationController
     @locale = browser_locale
   end
 end
+```
 
-If you include the WorldFlags::Locale module, you can simply do:
+If you include the `WorldFlags::Locale` module, you can simply do:
 
+```ruby
 before_filter :set_locale
+```
 
-And it should set the I18n.locale appropriately, trying params[locale], browser, ip address in succession, defaulting to I18n.default_locale.
+And it should set the I18n.locale appropriately, trying `params[locale], browser, ip address` in succession, defaulting to `I18n.default_locale`.
 For each locale it will check if it is a vaild locale, using
-WorldFlags::Locale#valid_locales
+`WorldFlags::Locale#valid_locales`
 
-For convenience you can also include WorldFlags::All to include all these modules.
+For convenience you can also include `WorldFlags::All` to include all these modules.
 
 Example:
 
+```ruby
 class MainController < ApplicationController
 	include WorldFlags::All
 
 	before_filter :set_locale	
 end
+```
 
 You must set up valid locales for use with WorldFlags in some initializer:
 
+```ruby
 # fx [:da, :en] or even ['da', 'en']
 WorldFlags::Locale.locales = my_valid_locales_list 
+```
 
-h2. Post flag selection
+## Post flag selection
 
 Here an example of setting up a flag click handler in order to call the server with the country/locale/language selection of the flag.
 
+```javascript
 $("li.flag").click(function() {
 	country = $(this).data('locale');
 
@@ -202,62 +246,9 @@ $("li.flag").click(function() {
 		console.log(data);
 	});	
 });
+```
 
-h2. Nice effects
+## Enjoy
 
-CSS config:
-
-ul.f32 {
-	list-style-type: none;
-	padding: 0;
-	margin-left: 0;
-
-	li.flag {
-		float:left;
-		padding-bottom: 6px;
-		padding-right: 26px;
-		margin-right: 8px;
-		background-position: center; 
-	}
-}
-
-#languages {
-	float: right;
-}
-
-p.clear { 
-	clear:both; 
-}
-
-.tooltip {
-  display:none;
-  background: white;
-  border: 1px solid black;
-  font-size:14px;
-  font-weight: bold;
-  text-align: center;
-  height:16px;
-  width:120px;
-  padding:10px;
-  color: black;
-}
-
-Tooltip script:
-
-http://jquerytools.org/demos/tooltip/index.html
-
-$("li.flag[title]").tooltip()
-
-Layout file:
-
-%body
-	.main
-		= link_to "Sign in", new_user_session_path
-		= link_to "Sign up", new_user_registration_path
-
-		#languages
-			= flag_list 64 do
-				= flags [:ar, :gb], :selected => WorldFlags.flag_code(@locale)
-		%p.clear
-		= yield
+Copyright (2012) Kristian Mandrup
 
