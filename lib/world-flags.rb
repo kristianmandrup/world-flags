@@ -78,6 +78,7 @@ module WorldFlags
 			@languages ||= begin 
 				active_locales.inject({}) do |res, locale|
 					res[locale] = Languages.send(locale) if Languages.respond_to?(locale)
+					res
 				end
 			end
 		end
