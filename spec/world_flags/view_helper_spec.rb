@@ -29,35 +29,35 @@ describe WorldFlags::ViewHelper do
 
   it "should list flags using Hash arg" do
     output = flags_list 32 do
-    	flags :ar => 'Argentina', :gb => 'England'
+    	flags :ar => 'Argentina', :gb => 'England', :dk => 'Denmark'
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"England\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"England\" data-locale=\"en_UK\">&nbsp;</li><li class=\"flag dk \" data-cc=\"dk\" data-country=\"Denmark\" data-locale=\"da\">&nbsp;</li></ul>"
   end
 
   it "should list flags using Array" do
     output = flags_list 32 do
       flags [:ar, :gb]
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentinian Spanish\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"British English\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"British English\" data-locale=\"en_UK\">&nbsp;</li></ul>"
   end
 
   it "should list flags" do
     output = flag_title :ar, 'Argentina'
-    output.should == "<li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" title=\"Argentina\">&nbsp;</li>"
+    output.should == "<li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
   end
 
   it "should list flags" do
     output = flags_list 32 do
     	flags_title :ar => 'Argentina'
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" title=\"Argentina\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li></ul>"
   end
 
   it "should list flags combined" do
     output = flags_list 32 do
     	[flags(:ar => 'Argentina', :gb => 'England'), flag(:br, 'Brazil')].join.html_safe 
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"England\">&nbsp;</li><li class=\"flag br \" data-cc=\"br\" data-country=\"Brazil\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar \" data-cc=\"ar\" data-country=\"Argentina\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb \" data-cc=\"gb\" data-country=\"England\" data-locale=\"en_UK\">&nbsp;</li><li class=\"flag br \" data-cc=\"br\" data-country=\"Brazil\" data-locale=\"br\">&nbsp;</li></ul>"
   end
 end
 

@@ -59,10 +59,10 @@ module WorldFlags
 			else
 				nil
 			end
-
+			locale = WorldFlags.locale(code)
 			extra_options = title ? {:title => title } : {}			
 			selected = flag_selected?(code, options) ? 'selected' : ''
-			content_tag :li,  label.html_safe, {:class => "flag #{code} #{selected}", :'data-country' => name, :'data-cc' => code}.merge(options[:html] || {}).merge(extra_options)
+			content_tag :li,  label.html_safe, {:class => "flag #{code} #{selected}", :'data-country' => name, :'data-cc' => code, :'data-locale' => locale}.merge(options[:html] || {}).merge(extra_options)
 		end
 
 		def flag_selected? code, options = {}

@@ -5,6 +5,14 @@ require 'world_flags/rails/engine' if defined?(::Rails::Engine)
 require "world_flags/languages"
 require "world_flags/countries"
 
+class Hash
+  def hash_revert
+    r = Hash.new
+    each {|k,v| r[v] = k}
+    r
+  end
+end
+
 module WorldFlags
 	class << self
 		attr_accessor :auto_select
@@ -30,14 +38,24 @@ module WorldFlags
 			locale_flag_map[code.to_sym] || code
 		end
 
+		def locale code
+			flag_locale_map[code.to_sym] || code
+		end
+
 		attr_accessor :locale_flag_map
 
 		# translate locales to flag code: ISO_3166-1_alpha-2
 		def locale_flag_map
 			@locale_map ||= {
-				:en => :gb,
-				:da => :dk
+				:en => :us,
+				:da => :dk,
+				:'en_UK' => :gb,
+				:'en_US' => :us
 			}
+		end
+
+		def flag_locale_map
+			locale_flag_map.hash_revert
 		end
 
 		# Language helper macros

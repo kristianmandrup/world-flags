@@ -187,6 +187,22 @@ You must set up valid locales for use with WorldFlags in some initializer:
 # fx [:da, :en] or even ['da', 'en']
 WorldFlags::Locale.locales = my_valid_locales_list 
 
+h2. Post flag selection
+
+Here an example of setting up a flag click handler in order to call the server with the country/locale/language selection of the flag.
+
+$("li.flag").click(function() {
+	country = $(this).data('locale');
+
+	// full page reload
+	// window.location.href = "/locale/select/" + country;
+
+	// async post
+	$.post("/locale/select", { "country": country }, function(data) {
+		console.log(data);
+	});	
+});
+
 h2. Nice effects
 
 CSS config:
