@@ -42,7 +42,11 @@ module WorldFlags
 			flag_locale_map[code.to_sym] || code
 		end
 
-		attr_accessor :locale_flag_map
+		attr_writer :locale_flag_map, :active_locales
+
+		def active_locales
+			@active_locales ||= [:en]
+		end
 
 		# translate locales to flag code: ISO_3166-1_alpha-2
 		def locale_flag_map
@@ -71,7 +75,11 @@ module WorldFlags
 		end
 
 		def languages
-			@languages ||= {:en => Languages.en}
+			@languages ||= begin 
+				active_locales.inject({}) do |res, locale|
+					res[locale] = Languages.send(locale) if Languages.respond_to?(locale)
+				end
+			end
 		end
 
 		# Country helper macros

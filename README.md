@@ -68,12 +68,35 @@ WorldFlags.countries = some_country_hash # fx loaded from a yaml file
 Notice that it is a locale code pointing to a map of ISO_3166-1_alpha-2 codes 
 to labels for that locale.
 
-```json
+```ruby
 {
 	:en => {:gb => 'English', :dk => 'Danish'}
 	:da => {:gb => 'Engelsk', :dk => 'Dansk'}
 }
 ```
+
+An english translation file of country codes (in json format) can be found in app/config/country_codes.
+
+```ruby
+cc_file_en = File.join(Rails.root, 'app/config/country_codes/iso-3166-2.en.json')
+country_codes_en = JSON.parse File.read(cc_file_en)
+WorldFlags.languages = country_codes_en
+```
+
+Here an even better, more flexible approach that allows for multiple translations.
+
+```
+WorldFlags::Language.en = country_codes_en
+```
+
+If you use this approach, you must currently add a WorldFlags::Language class method for that locale (fx a method `#da`for danish) or fx use `attr_accessor :da`. For this approach, you must also set the active locales using `#active_locales`.
+
+```
+WorldFlags.active_locales = [:en, :da]
+WorldFlags::Language.da = country_codes_da
+```
+
+Please feel free to suggest or improve this locale/translation infrastructure!
 
 ## Rendering
 
