@@ -167,11 +167,17 @@ To also get content rendered for the <li>
 ```
 
 Note: There is also a #flag_selected? helper, which is (and/or can be) used to determine if the flag to be drawn should have the "selected" class set)
+
+## Automatic flag selection
+
 The auto-select feature is by default turned off, but can be turned on/off using:
 
 ```ruby
 WorldFlags.auto_select = true # or WorldFlags.auto_select!
 ```
+
+With this feature turned on, WorlfFlags will attempt to set the `selected` CSS class on whatever flag drawn that matches the current `I18n.locale`code.
+If this doesn't work out for you, try to add a WorldFlags flag-to-locale code mapping for the locale.
 
 ## Using localization
 
