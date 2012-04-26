@@ -28,11 +28,16 @@ Gem::Specification.new do |s|
     "VERSION",
     "app/config/country_codes/iso-3166-2.en.json",
     "lib/world-flags.rb",
+    "lib/world_flags/core_ext.rb",
     "lib/world_flags/countries.rb",
+    "lib/world_flags/helper/all.rb",
+    "lib/world_flags/helper/browser.rb",
+    "lib/world_flags/helper/geo.rb",
+    "lib/world_flags/helper/locale.rb",
+    "lib/world_flags/helper/view.rb",
+    "lib/world_flags/helpers.rb",
     "lib/world_flags/languages.rb",
-    "lib/world_flags/locale_helper.rb",
     "lib/world_flags/rails/engine.rb",
-    "lib/world_flags/view_helper.rb",
     "sandbox/country_codes_table.html",
     "sandbox/extract_codes.rb",
     "spec/spec_helper.rb",
@@ -71,14 +76,12 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<httparty>, [">= 0"])
       s.add_development_dependency(%q<rspec>, [">= 2.8.0"])
       s.add_development_dependency(%q<rdoc>, [">= 3.12"])
       s.add_development_dependency(%q<bundler>, [">= 1.0.0"])
       s.add_development_dependency(%q<jeweler>, [">= 1.8.3"])
       s.add_development_dependency(%q<simplecov>, [">= 0.5"])
     else
-      s.add_dependency(%q<httparty>, [">= 0"])
       s.add_dependency(%q<rspec>, [">= 2.8.0"])
       s.add_dependency(%q<rdoc>, [">= 3.12"])
       s.add_dependency(%q<bundler>, [">= 1.0.0"])
@@ -86,7 +89,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<simplecov>, [">= 0.5"])
     end
   else
-    s.add_dependency(%q<httparty>, [">= 0"])
     s.add_dependency(%q<rspec>, [">= 2.8.0"])
     s.add_dependency(%q<rdoc>, [">= 3.12"])
     s.add_dependency(%q<bundler>, [">= 1.0.0"])

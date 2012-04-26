@@ -10,7 +10,7 @@ module WorldFlags
 	class << self
 		attr_accessor :auto_select
 
-
+		# for WorldFlags::Helper::Locale
     def valid_locales
       @valid_locales ||= ['en', 'de', 'es', 'ru']
     end
