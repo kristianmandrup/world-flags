@@ -27,6 +27,8 @@ $("li.flag['data-cc'=dk).addClass('semi');
 $("li.flag['data-cc'=dk).removeClass('semi');
 ```
 
+CSS configuration in `application.css` manifest.
+
 ```css
 */
  *= require_self
@@ -92,7 +94,7 @@ WorldFlags::Language.en = country_codes_en
 
 If you use this approach, you must currently add a WorldFlags::Language class method for that locale (fx a method `#da`for danish) or fx use `attr_accessor :da`. For this approach, you must also set the active locales using `#active_locales`.
 
-```
+```ruby
 WorldFlags.active_locales = [:en, :da]
 WorldFlags::Language.da = country_codes_da
 ```
