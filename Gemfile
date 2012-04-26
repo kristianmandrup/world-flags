@@ -1,7 +1,5 @@
 source :rubygems
 
-gem 'httparty'
-
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
 group :development do
@@ -13,5 +11,6 @@ group :development do
 end
 
 group :test do
+	gem 'httparty'
 	gem 'rails', '>= 3.1'
 end

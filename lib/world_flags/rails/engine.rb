@@ -6,7 +6,7 @@ module WorldFlags
       end
 
     	def self.add_view_ext
-    		ActionView::Base.send :include, WorldFlags::ViewHelper
+    		ActionView::Base.send :include, WorldFlags::Helper::View
     	end
     end
   end

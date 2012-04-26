@@ -1,21 +1,24 @@
-require "world_flags/view_helper"
-require "world_flags/locale_helper"
+require "world_flags/core_ext"
+require "world_flags/helpers"
+
 require 'world_flags/rails/engine' if defined?(::Rails::Engine)
 
 require "world_flags/languages"
 require "world_flags/countries"
 
-class Hash
-  def hash_revert
-    r = Hash.new
-    each {|k,v| r[v] = k}
-    r
-  end
-end
-
 module WorldFlags
 	class << self
 		attr_accessor :auto_select
+
+
+    def valid_locales
+      @valid_locales ||= ['en', 'de', 'es', 'ru']
+    end
+
+		def valid_locales= *list
+			raise ArgumentError, "Must be a list of locales, was #{list}" if list.empty?
+			@valid_locales ||= list.flatten
+		end
 
 		def auto_select?
 			auto_select

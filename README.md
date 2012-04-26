@@ -204,7 +204,7 @@ A small helper module is provided that can be inserted into a Controller or wher
 class MainController < ApplicationController
   def home
   	@json = Property.all.to_gmaps4rails
-    @country_code = WorldFlags::Geo.ip_country_code
+    @country_code = WorldFlags::Helper::Geo.ip_country_code
   end
 end
 ```
@@ -213,8 +213,8 @@ Alternatively you can include the modules directly into the controller:
 
 ```ruby
 class MainController < ApplicationController
-	include WorldFlags::Geo
-	include WorldFlags::Browser
+	include WorldFlags::Helper::Geo
+	include WorldFlags::Helper::Browser
 
   def home
   	@json = Property.all.to_gmaps4rails
@@ -224,7 +224,7 @@ class MainController < ApplicationController
 end
 ```
 
-If you include the `WorldFlags::Locale` module, you can simply do:
+If you include the `WorldFlags::Helper::Locale` module, you can simply do:
 
 ```ruby
 before_filter :set_locale
@@ -232,10 +232,12 @@ before_filter :set_locale
 
 And it should set the I18n.locale appropriately, trying `params[locale], browser, ip address` in succession, defaulting to `I18n.default_locale`.
 
-For each locale it will check if it is a valid locale. By default it will call `valid_locales` in the controller, which will first try `I18n.available_locales` and then fall-back to `WorldFlags::Locale#valid_locales`.
+For each locale it will check if it is a valid locale. By default it will call `valid_locales` in the controller, which will first try `I18n.available_locales` and then fall-back to `WorldFlags#valid_locales`.
 You can override this behavior by defining you custom `valid_locales` method in the controller.
 
-For convenience you can include `WorldFlags::All` to include all these helper modules.
+For convenience you can include `WorldFlags::Helper::All` to include all these helper modules.
+
+Note that if you include the `WorldFlags::Helper::Geo you need the `httparty` gem as well.
 
 Example:
 
@@ -251,7 +253,7 @@ You can configure valid locales for use with WorldFlags in an initializer, fx `i
 
 ```ruby
 # fx [:da, :en] or even ['da', 'en']
-WorldFlags::Locale.valid_locales = my_valid_locales_list 
+WorldFlags.valid_locales = my_valid_locales_list 
 ```
 
 Note that if not set, this list is preconfigured to: `['en', 'de', 'es', 'ru']`
