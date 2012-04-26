@@ -2,16 +2,16 @@
 // worldFlagsUrl.reloadWithLocaleParam('da');
 
 var worldFlagsUrl = {
-	reloadWithLocaleParam: function(locale) {
-		this.addLocaleParameter(window.location.href, locale);
-		window.reload();
-	},
+  reloadWithLocaleParam: function(locale) {
+    this.addLocaleParameter(window.location.href, locale);
+    window.reload();
+  },
 
-	addLocaleParameter: function(url, locale) {
-		this.addParameterToURL(url, 'locale', locale);
-	},
+  addLocaleParameter: function(url, locale) {
+    this.addParameterToURL(url, 'locale', locale);
+  },
 
-  addParameterToURL: function(_url,_key,_value){
+  addParameterToURL: function(_url, _key, _value){
     var param = _key+'='+escape(_value);
 
     var sep = '&';
