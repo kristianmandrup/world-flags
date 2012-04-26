@@ -10,6 +10,14 @@ module WorldFlags
 	class << self
 		attr_accessor :auto_select
 
+		# TODO: Why both active and valid locales? Does this even make sense!?
+		attr_writer :active_locales
+
+		def active_locales
+			@active_locales ||= I18n.available_locales unless I18n.available_locales.blank?
+			@active_locales ||= [:en]
+		end
+
 		# for WorldFlags::Helper::Locale
     def valid_locales
       @valid_locales ||= ['en', 'de', 'es', 'ru']
@@ -45,11 +53,7 @@ module WorldFlags
 			flag_locale_map[code.to_sym] || code
 		end
 
-		attr_writer :locale_flag_map, :active_locales
-
-		def active_locales
-			@active_locales ||= [:en]
-		end
+		attr_writer :locale_flag_map
 
 		# translate locales to flag code: ISO_3166-1_alpha-2
 		def locale_flag_map

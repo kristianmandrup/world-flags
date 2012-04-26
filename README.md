@@ -62,11 +62,12 @@ Alternatively for the 32 width flags
 
 You can setup WorldFlags to use a localization map for the labels of the flag icons
 
+```ruby
 WorldFlags.languages = some_language_hash # fx loaded from a yaml file
 WorldFlags.countries = some_country_hash # fx loaded from a yaml file
+```
 
-Notice that it is a locale code pointing to a map of ISO_3166-1_alpha-2 codes 
-to labels for that locale.
+Notice that it is a locale code pointing to a map of *ISO_3166-1_alpha-2* codes to labels for that locale.
 
 ```ruby
 {
@@ -75,7 +76,7 @@ to labels for that locale.
 }
 ```
 
-An english translation file of country codes (in json format) can be found in app/config/country_codes.
+An english translation file of country codes (in json format) can be found in `app/config/country_codes`.
 
 ```ruby
 cc_file_en = File.join(Rails.root, 'app/config/country_codes/iso-3166-2.en.json')
