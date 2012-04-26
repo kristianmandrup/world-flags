@@ -62,6 +62,8 @@ Alternatively for the 32 width flags
 
 ## Configuring localization
 
+You can run the Rails generator `world_flags:init` in order to create a basic initializer file for world flags with an overview of the different options available.
+
 You can setup WorldFlags to use a localization map for the labels of the flag icons
 
 ```ruby
@@ -98,6 +100,10 @@ If you use this approach, you must currently add a WorldFlags::Language class me
 WorldFlags.active_locales = [:en, :da]
 WorldFlags::Language.da = country_codes_da
 ```
+
+To customize the locale to flag code map, use:
+
+`WorldFlags.locale_flag_map = some hash`
 
 Please feel free to suggest or improve this locale/translation infrastructure!
 
