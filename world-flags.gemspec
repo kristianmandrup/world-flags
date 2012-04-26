@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.2.7"
+  s.version = "0.2.8"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -27,6 +27,8 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "app/config/country_codes/iso-3166-2.en.json",
+    "lib/generators/world_flags/init_generator.rb",
+    "lib/generators/world_flags/templates/world_flags.erb",
     "lib/world-flags.rb",
     "lib/world_flags/core_ext.rb",
     "lib/world_flags/countries.rb",
