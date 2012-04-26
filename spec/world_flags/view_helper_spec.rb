@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe WorldFlags::ViewHelper do
+describe WorldFlags::Helper::View do
   include ControllerTestHelpers,
-          WorldFlags::ViewHelper
+          WorldFlags::Helper::View
 
   it "should be empty, with an empty block" do
     output = flags_list do

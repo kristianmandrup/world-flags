@@ -13,7 +13,9 @@ module WorldFlags
 
 			def flags_list size = 16, &block
 				raise "Missing block" unless block_given?
-				raise "Supported sizes are only #{WorldFlags::ViewHelper.flag_sizes}" unless WorldFlags::ViewHelper.flag_sizes.include?(size.to_i)
+				unless WorldFlags::Helper::View.flag_sizes.include?(size.to_i)
+					raise "Supported sizes are only #{WorldFlags::Helper::View.flag_sizes}" 
+				end
 				content = capture(&block)
 				content_tag :ul, content, :class => "f#{size}"
 			end
@@ -67,8 +69,12 @@ module WorldFlags
 			end
 
 			def flag_selected? code, options = {}
-				selected = options[:selected] || options[code.to_sym]
-				selected ||= (flag_code(I18n.locale.to_sym) == code.to_sym) if WorldFlags.auto_select?
+				code = code.to_sym
+				sel = options[:selected] || options[code]
+
+				auto_sel = flag_code(I18n.locale).to_sym if WorldFlags.auto_select?
+
+				selected ||= [sel, auto_sel].any?{|e| e == code }
 			end
 
 			def flag_title code, name, options = {}

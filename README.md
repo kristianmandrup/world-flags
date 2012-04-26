@@ -288,18 +288,20 @@ $("li.flag").click(function() {
 });
 ```
 
-This gem now comes with a simple javascript object baked in:
+This gem now comes with a simple javascript object `WorldFlagsUrlHelper` baked in. To use it, add the following to your ``application.js manifest.
 
 ```
-//= require world_flags/url_locale_params
+//= require world_flags/url_helper
 ```
+
+And use it something like this:
 
 ```javascript
 $("li.flag").click(function() {
 	country = $(this).data('locale');
 
 	// full page reload with locale=xx param added to url :)
-	worldFlagsUrl.reloadWithLocaleParam('da');
+	WorldFlagsUrlHelper.reloadWithLocaleParam('da');
 });
 ```
 
