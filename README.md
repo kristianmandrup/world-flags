@@ -231,10 +231,11 @@ before_filter :set_locale
 ```
 
 And it should set the I18n.locale appropriately, trying `params[locale], browser, ip address` in succession, defaulting to `I18n.default_locale`.
-For each locale it will check if it is a vaild locale, using
-`WorldFlags::Locale#valid_locales`
 
-For convenience you can also include `WorldFlags::All` to include all these modules.
+For each locale it will check if it is a valid locale. By default it will call `valid_locales` in the controller, which will first try `I18n.available_locales` and then fall-back to `WorldFlags::Locale#valid_locales`.
+You can override this behavior by defining you custom `valid_locales` method in the controller.
+
+For convenience you can include `WorldFlags::All` to include all these helper modules.
 
 Example:
 
@@ -246,12 +247,24 @@ class MainController < ApplicationController
 end
 ```
 
-You must set up valid locales for use with WorldFlags in some initializer:
+You can configure valid locales for use with WorldFlags in an initializer, fx `initializers/locales.rb` :
 
 ```ruby
 # fx [:da, :en] or even ['da', 'en']
-WorldFlags::Locale.locales = my_valid_locales_list 
+WorldFlags::Locale.valid_locales = my_valid_locales_list 
 ```
+
+Note that if not set, this list is preconfigured to: `['en', 'de', 'es', 'ru']`
+
+Alternatively configure in your `application.rb` file:
+
+```ruby
+class Application < Rails::Application
+  # ...
+  config.i18n.available_locales = [:da, :sv, :no]
+``
+
+Note: This approach in turn works well with the `i18n-docs` gem ;)
 
 ## Post flag selection
 
@@ -264,10 +277,27 @@ $("li.flag").click(function() {
 	// full page reload
 	// window.location.href = "/locale/select/" + country;
 
+	// window.location.href = window.location.href + '?locale=' + country;
+
 	// async post
 	$.post("/locale/select", { "country": country }, function(data) {
 		console.log(data);
 	});	
+});
+```
+
+This gem now comes with a simple javascript object baked in:
+
+```
+//= require world_flags/url_locale_params
+```
+
+```javascript
+$("li.flag").click(function() {
+	country = $(this).data('locale');
+
+	// full page reload with locale=xx param added to url :)
+	worldFlagsUrl.reloadWithLocaleParam('da');
 });
 ```
 

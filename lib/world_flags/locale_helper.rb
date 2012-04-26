@@ -35,6 +35,14 @@ module WorldFlags
       I18n.locale = locales.select_first_in(valid_locales.downcase)
     end  
 
+    def valid_locales
+      if I18n.respond_to?(:available_locales) && I18n.available_locales.present?
+        I18n.available_locales 
+      else
+        WorldFlags::Locale.valid_locales
+      end
+    end
+
     class << self
       attr_writer :valid_locales
 
