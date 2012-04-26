@@ -1,7 +1,7 @@
 // Usage: 
-// worldFlagsUrl.reloadWithLocaleParam('da');
+// WorldFlagsUrl.reloadWithLocaleParam('da');
 
-var worldFlagsUrl = {
+var WorldFlagsUrl = {
   reloadWithLocaleParam: function(locale) {
     this.addLocaleParameter(window.location.href, locale);
     window.reload();
