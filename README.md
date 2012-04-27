@@ -131,7 +131,7 @@ You can also use built in helper methods:
 
 ```haml
 = flag_list 16 do
-	= flags [:ar, :gb], :selected => :gb
+	= flags :ar, :gb, :selected => :gb
 ```
 
 Alternatively
@@ -154,7 +154,7 @@ For use with tooltips or similar js plguins, it can be useful to set the <li> ti
 
 ```haml
 = flag_list 32 do
-	= flags [:ar, :br, :gb], :title => true
+	= flags :ar, :br, :gb, :title => true
 ```
 
 The flag_title will render the following list item:
@@ -174,7 +174,7 @@ The :title and :content can also be set to a string which is then displayed
 To also get content rendered for the <li>
 
 ```haml
-	= flags [:ar, :br, :gb], :content => true
+	= flags :ar, :br, :gb, :content => true
 ```
 
 Note: There is also a #flag_selected? helper, which is (and/or can be) used to determine if the flag to be drawn should have the "selected" class set)
@@ -198,14 +198,14 @@ Use danish (da) country labels
 
 ```haml
 = flag_list 32 do
-	= flags [:ar, :br, :gb], :country => :da
+	= flags :ar, :br, :gb, :country => :da
 ```
 
 Use danish (da) language labels
 
 ```haml
 = flag_list 32 do
-	= flags [:ar, :br, :gb], :language => I18n.locale
+	= flags :ar, :br, :gb, :language => I18n.locale
 ```
 
 Note: In the config folder there is now a json file with all the english ISO-3166-2 code translations ready for use. You can make similar locale files for other locales/languages.
