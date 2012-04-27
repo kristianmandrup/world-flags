@@ -1,6 +1,6 @@
 module WorldFlags
   module Generators
-    class InitGenerator < Rails::Generators::Base
+    class InitGenerator < ::Rails::Generators::Base
       desc "Creates world flags initializer"
 
       source_root File.dirname(__FILE__) + '/templates'
