@@ -148,6 +148,8 @@ Or using the #flag_code helper
 	= flag(:ar) + flag(:gb, :selected => flag_code(I18n.locale)
 ```
 
+You can also include the :with_semi => true option in order to have flags not selected displayed with the 'semi' class (semi-bright image)
+
 For use with tooltips or similar js plguins, it can be useful to set the <li> title attribute:
 
 ```haml
