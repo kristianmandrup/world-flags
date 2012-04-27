@@ -7,7 +7,7 @@ module WorldFlags
 
       def valid_locales
         if I18n.respond_to?(:available_locales) && I18n.available_locales.present?
-          I18n.available_locales 
+          I18n.available_locales
         else
           WorldFlags.valid_locales
         end

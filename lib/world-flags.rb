@@ -49,11 +49,11 @@ module WorldFlags
 
 		# Locale translation helper macros
 
-		def flag_code code
+		def flag_code code = :en
 			locale_flag_map[code.to_sym] || code
 		end
 
-		def locale code
+		def locale code = :en
 			flag_locale_map[code.to_sym] || code
 		end
 
@@ -64,7 +64,6 @@ module WorldFlags
 			@locale_map ||= {
 				:en => :us,
 				:da => :dk,
-
 				:sv => :se,
 				:'en_UK' => :gb,
 				:'en_US' => :us

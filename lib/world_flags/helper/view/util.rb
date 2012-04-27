@@ -29,12 +29,13 @@ module WorldFlags
 					extra_options = title ? {:title => title } : {}			
 					selected = flag_selected?(code, options) ? ' selected' : ''
 
+					language_name = WorldFlags.language(:en, code)
+					country_name = WorldFlags.country(:en, code)
+
 					# add semi class if not selected
 					semi = (selected.blank? ? ' semi' : '') if options[:with_semi]
 
-					puts "name: #{name}"
-
-					{:class => "flag #{code}#{selected}#{semi}", :'data-country' => name, :'data-cc' => code, :'data-locale' => locale}.merge(options[:html] || {}).merge(extra_options)
+					{:class => "flag #{code}#{selected}#{semi}", :'data-country_name' => country_name, :'data-language_name' => language_name, :'data-cc' => code, :'data-locale' => locale}.merge(options[:html] || {}).merge(extra_options)
 				end
 
 				def self.flag_selected? code, options = {}

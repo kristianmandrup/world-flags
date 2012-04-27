@@ -7,7 +7,7 @@ describe WorldFlags::Helper::View do
   before do
     WorldFlags.auto_select!
     I18n.locale = 'ar'
-    WorldFlags.active_locales = [:da, :se, :no, :en]
+    WorldFlags.active_locales = [:da, :sv, :no, :en, :ar]
   end
 
   it "should be empty, with an empty block" do
@@ -72,4 +72,3 @@ describe WorldFlags::Helper::View do
     end
   end  
 end
-
