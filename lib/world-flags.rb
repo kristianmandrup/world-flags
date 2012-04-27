@@ -8,7 +8,7 @@ require "world_flags/countries"
 
 module WorldFlags
 	class << self
-		attr_accessor :auto_select
+		attr_accessor :auto_select, :raise_error, :default_code
 
 		# TODO: Why both active and valid locales? Does this even make sense!?
 		attr_writer :active_locales
@@ -26,6 +26,10 @@ module WorldFlags
 		def valid_locales= *list
 			raise ArgumentError, "Must be a list of locales, was #{list}" if list.empty?
 			@valid_locales ||= list.flatten
+		end
+
+		def raise_error?
+			@raise_error
 		end
 
 		def auto_select?
@@ -60,6 +64,8 @@ module WorldFlags
 			@locale_map ||= {
 				:en => :us,
 				:da => :dk,
+
+				:sv => :se,
 				:'en_UK' => :gb,
 				:'en_US' => :us
 			}
@@ -69,11 +75,23 @@ module WorldFlags
 			locale_flag_map.hash_revert
 		end
 
+		def default_code_used
+			WorldFlags.default_code || :en
+		end
+
 		# Language helper macros
 
 		def language locale = :en, code = :en
-			locale ||= :en
-			languages[locale][code]
+			locale ||= default_code_used
+			locale_languages_map = languages[locale] || languages[default_code_used]
+
+			raise "No language-locale map defined for locale: #{locale} in #{languages}" if locale_languages_map.blank?
+
+			# raise("No language map defined for language code: #{code} in #{locale_languages_map[code]}")			
+			locale_languages_map[code] ? locale_languages_map[code] : locale_languages_map[default_code_used] 
+		rescue Exception => e
+			raise e if WorldFlags.raise_error?
+			"Undefined"
 		end
 
 		def languages= languages
@@ -83,18 +101,34 @@ module WorldFlags
 
 		def languages
 			@languages ||= begin 
-				active_locales.inject({}) do |res, locale|
-					res[locale] = Languages.send(locale) if Languages.respond_to?(locale)
+				active_locales.inject({}) do |res, loc|
+					res[locale] = find_language_map(loc)
 					res
 				end
+			end
+		end
+
+		def find_language_map loc
+			# return Countries.send(loc) if Countries.respond_to?(loc)
+			[loc, flag_code(loc), locale(loc)].each do |code|
+				return Languages.send(locale) if Languages.respond_to?(locale)
 			end
 		end
 
 		# Country helper macros
 
 		def country locale = :en, code = :en
-			locale ||= :en
-			countries[locale][code]
+			locale ||= default_code_used
+
+			locale_countries_map = countries[locale] || countries[default_code_used]
+
+			raise "No country-locale map defined for locale: #{locale} in #{countries}" if locale_countries_map.blank?
+
+			# raise("No country map defined for country code: #{code} in #{locale_countries_map[code]}")
+			locale_countries_map[code] ? locale_countries_map[code] : locale_countries_map[default_code_used] 
+		rescue Exception => e
+			raise e if WorldFlags.raise_error?
+			"Undefined"
 		end
 
 		def countries= countries
@@ -103,7 +137,19 @@ module WorldFlags
 		end
 
 		def countries
-			@countries ||= {:en => Countries.en}
+			@countries ||= begin 
+				active_locales.inject({}) do |res, loc|
+					res[loc] = find_country_map(loc)
+					res
+				end
+			end
 		end		
+
+		def find_country_map loc
+			# return Countries.send(loc) if Countries.respond_to?(loc)
+			[loc, flag_code(loc), locale(loc)].each do |code|
+				return Countries.send(code) if Countries.respond_to?(code)
+			end
+		end
 	end
 end

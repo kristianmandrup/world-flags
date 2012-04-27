@@ -20,6 +20,43 @@ module WorldFlags
 					:fi => 'Finland'
 				}
 			end
+
+			def da
+				{
+					:gb => 'England',
+					:us => 'USA',				
+					:es => 'Spanien',
+					:de => 'Tyskland',
+					:dk => 'Danmark',
+					:se => 'Sverige',
+					:no => 'Norge',					
+				}
+			end
+			alias_method :dk, :da			
+
+			def se
+				{
+					:gb => 'England',
+					:us => 'USA',				
+					:es => 'Spanien',
+					:de => 'Tyskland',
+					:dk => 'Danmark',
+					:se => 'Sverige',
+					:no => 'Norge',					
+				}
+			end
+
+			def no
+				{
+					:gb => 'England',
+					:us => 'USA',				
+					:es => 'Spanien',
+					:de => 'Tyskland',
+					:dk => 'Danmark',
+					:se => 'Sverige',
+					:no => 'Norge',					
+				}
+			end
 		end
 	end
 end

@@ -21,6 +21,43 @@ module WorldFlags
 					:fi => 'Finnish'
 				}
 			end
+
+			def da
+				{
+					:gb => 'Engelsk',
+					:us => 'Engelsk',				
+					:es => 'Spansk',
+					:de => 'Tysk',
+					:dk => 'Dansk',
+					:se => 'Svensk',
+					:no => 'Norsk',					
+				}
+			end
+			alias_method :dk, :da
+
+			def se
+				{
+					:gb => 'Engelska',
+					:us => 'Engelska',				
+					:es => 'Spansk',
+					:de => 'Tysk',
+					:dk => 'Dansk',
+					:se => 'Svenska',
+					:no => 'Norsk',					
+				}
+			end
+
+			def no
+				{
+					:gb => 'Engelsk',
+					:us => 'Engelsk',				
+					:es => 'Spansk',
+					:de => 'Tysk',
+					:dk => 'Dansk',
+					:se => 'Svensk',
+					:no => 'Norsk',					
+				}
+			end			
 		end
 	end
 end

@@ -32,6 +32,8 @@ module WorldFlags
 					# add semi class if not selected
 					semi = (selected.blank? ? ' semi' : '') if options[:with_semi]
 
+					puts "name: #{name}"
+
 					{:class => "flag #{code}#{selected}#{semi}", :'data-country' => name, :'data-cc' => code, :'data-locale' => locale}.merge(options[:html] || {}).merge(extra_options)
 				end
 

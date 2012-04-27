@@ -7,6 +7,7 @@ describe WorldFlags::Helper::View do
   before do
     WorldFlags.auto_select!
     I18n.locale = 'ar'
+    WorldFlags.active_locales = [:da, :se, :no, :en]
   end
 
   it "should be empty, with an empty block" do
@@ -57,5 +58,18 @@ describe WorldFlags::Helper::View do
     output = flag_title :ar, 'Argentina'
     output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country=\"Argentina\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
   end
+
+  describe 'Countries' do
+    before do
+      I18n.locale = 'da'
+    end
+
+    it "should list nordic flags using args and :with_semi" do
+      output = flags_list 32 do
+        flags :dk, :se, :no, :with_semi => true, :country => :da
+      end
+      output.should == "<ul class=\"f32\"><li class=\"flag dk selected\" data-cc=\"dk\" data-country=\"Danmark\" data-locale=\"da\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country=\"Sverige\" data-locale=\"sv\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country=\"Norge\" data-locale=\"no\">&nbsp;</li></ul>"
+    end
+  end  
 end
 
