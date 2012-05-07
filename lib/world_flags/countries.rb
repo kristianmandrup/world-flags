@@ -15,8 +15,9 @@ module WorldFlags
 					:nl => 'Netherlands',
 					:de => 'Germany',
 					:dk => 'Denmark',
-					:se => 'Sweden',
+					:sv => 'Sweden',
 					:no => 'Norway',
+					:nb => 'Norway',
 					:fi => 'Finland'
 				}
 			end
@@ -28,8 +29,9 @@ module WorldFlags
 					:es => 'Spanien',
 					:de => 'Tyskland',
 					:dk => 'Danmark',
-					:se => 'Sverige',
-					:no => 'Norge',					
+					:sv => 'Sverige',
+					:no => 'Norge',
+					:nb => 'Norge',
 				}
 			end
 			alias_method :dk, :da			
@@ -41,8 +43,9 @@ module WorldFlags
 					:es => 'Spanien',
 					:de => 'Tyskland',
 					:dk => 'Danmark',
-					:se => 'Sverige',
-					:no => 'Norge',					
+					:sv => 'Sverige',
+					:no => 'Norge',
+					:nb => 'Norge',
 				}
 			end
 
@@ -55,6 +58,7 @@ module WorldFlags
 					:dk => 'Danmark',
 					:se => 'Sverige',
 					:no => 'Norge',					
+					:nb => 'Norge',
 				}
 			end
 		end

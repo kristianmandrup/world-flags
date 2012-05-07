@@ -17,7 +17,9 @@ module WorldFlags
 					:de => 'German',
 					:dk => 'Danish',
 					:se => 'Swedish',
+					:sv => 'Swedish',
 					:no => 'Norwegian',
+					:nb => 'Norwegian',
 					:fi => 'Finnish'
 				}
 			end
@@ -30,7 +32,9 @@ module WorldFlags
 					:de => 'Tysk',
 					:dk => 'Dansk',
 					:se => 'Svensk',
-					:no => 'Norsk',					
+					:sv => 'Svensk',
+					:no => 'Norsk',										
+					:nb => 'Norsk'
 				}
 			end
 			alias_method :dk, :da
@@ -43,7 +47,9 @@ module WorldFlags
 					:de => 'Tysk',
 					:dk => 'Dansk',
 					:se => 'Svenska',
-					:no => 'Norsk',					
+					:sv => 'Svenska',
+					:no => 'Norsk',
+					:nb => 'Norsk',
 				}
 			end
 
@@ -55,7 +61,9 @@ module WorldFlags
 					:de => 'Tysk',
 					:dk => 'Dansk',
 					:se => 'Svensk',
-					:no => 'Norsk',					
+					:sb => 'Svensk',
+					:no => 'Norsk',
+					:nb => 'Norsk',
 				}
 			end			
 		end

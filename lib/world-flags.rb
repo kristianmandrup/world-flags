@@ -65,6 +65,8 @@ module WorldFlags
 				:en => :us,
 				:da => :dk,
 				:sv => :se,
+				:nb => :no,
+				:'sv_SE' => :se,
 				:'en_UK' => :gb,
 				:'en_US' => :us
 			}
