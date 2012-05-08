@@ -17,7 +17,6 @@ module WorldFlags
 					:dk => 'Denmark',
 					:sv => 'Sweden',
 					:no => 'Norway',
-					:nb => 'Norway',
 					:fi => 'Finland'
 				}
 			end
@@ -31,7 +30,6 @@ module WorldFlags
 					:dk => 'Danmark',
 					:sv => 'Sverige',
 					:no => 'Norge',
-					:nb => 'Norge',
 				}
 			end
 			alias_method :dk, :da			
@@ -45,9 +43,9 @@ module WorldFlags
 					:dk => 'Danmark',
 					:sv => 'Sverige',
 					:no => 'Norge',
-					:nb => 'Norge',
 				}
 			end
+			alias_method :sv, :se
 
 			def no
 				{
@@ -57,10 +55,10 @@ module WorldFlags
 					:de => 'Tyskland',
 					:dk => 'Danmark',
 					:se => 'Sverige',
-					:no => 'Norge',					
-					:nb => 'Norge',
+					:no => 'Norge'
 				}
 			end
+			alias_method :nb, :no
 		end
 	end
 end

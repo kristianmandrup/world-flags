@@ -33,8 +33,7 @@ module WorldFlags
 					:dk => 'Dansk',
 					:se => 'Svensk',
 					:sv => 'Svensk',
-					:no => 'Norsk',										
-					:nb => 'Norsk'
+					:no => 'Norsk'
 				}
 			end
 			alias_method :dk, :da
@@ -48,10 +47,10 @@ module WorldFlags
 					:dk => 'Dansk',
 					:se => 'Svenska',
 					:sv => 'Svenska',
-					:no => 'Norsk',
-					:nb => 'Norsk',
+					:no => 'Norsk'
 				}
 			end
+			alias_method :sv, :se
 
 			def no
 				{
@@ -62,10 +61,10 @@ module WorldFlags
 					:dk => 'Dansk',
 					:se => 'Svensk',
 					:sb => 'Svensk',
-					:no => 'Norsk',
-					:nb => 'Norsk',
+					:no => 'Norsk'
 				}
-			end			
+			end
+			alias_method :nb, :no
 		end
 	end
 end
