@@ -80,32 +80,58 @@ Notice that it is a locale code pointing to a map of *ISO_3166-1_alpha-2* codes 
 }
 ```
 
-You can use [localized_language_select](https://github.com/kristianmandrup/localized_language_select) and [localized_country_select](https://github.com/karmi/localized_country_select) in order to generate the locale translation files needed for each locale. It would be nice to extract the pure rake/generator functionality in separate gems for cross-use in various projects.
+You can use [countries_and_languages](https://github.com/kristianmandrup/countries_and_languages) in order to generate the locale translation files needed for each locale. 
 
-An english translation file of country codes (in json format) can be found in `app/config/country_codes`.
+## Locale mapping files
+
+The engine/gem includes English translation mapping files for countries and languages. They are not complete, so please edit them if you find errors or find your favorite country or language missing or misplaced somehow. 
+
+### Country mappings
+
+A country code to country name (in json format) can be found in `app/config/countries`. 
 
 ```ruby
-cc_file_en = File.join(Rails.root, 'app/config/country_codes/iso-3166-2.en.json')
-country_codes_en = JSON.parse File.read(cc_file_en)
-WorldFlags.languages = country_codes_en
+def countries locale = :en
+  path = File.join(Rails.root, "app/config/countries/locale_countries.#{locale}.json")
+  JSON.parse File.read(path)
+end
+
+WorldFlags.countries = countries(:en)
 ```
 
-Here an even better, more flexible approach that allows for multiple translations.
+### Languages mappings
+
+A country code to languages mappping file (also in json), can be found in `app/config/languages`.
+
+```ruby
+def languages locale = :en
+  path = File.join(Rails.root, "app/config/languages/locale_languages.#{locale}.json")
+  JSON.parse File.read(path)
+end
+
+WorldFlags.languages = languages(:en)
+```
+
+Another approach more suited to adding single files is the following. Note that both `countrieds` and `languages` are instances of classes that inherit from the `Hashie::Mash` class (hash access via method missing).
 
 ```
-WorldFlags::Language.en = country_codes_en
+WorldFlags.countries.en = countries_en
+WorldFlags.languages.en = languages_en
 ```
 
-If you use this approach, you must currently add a WorldFlags::Language class method for that locale (fx a method `#da`for danish) or fx use `attr_accessor :da`. For this approach, you must also set the active locales using `#active_locales`.
+You can set the active locales using:
 
 ```ruby
 WorldFlags.active_locales = [:en, :da]
-WorldFlags::Language.da = country_codes_da
 ```
 
-To customize the locale to flag code map, use:
+## Locale to country code
 
-`WorldFlags.locale_flag_map = some hash`
+You can  customize the locale to flag code map, using:
+
+`WorldFlags.locale_flag_map = some_hash`
+
+The gem also comes with a json file at `config/locale_map/locale_to_country_code.json` that you can load in as a hash. WorldFlags will treat any locale of the form `xx_YY` as the YY downcased (yy).
 
 Please feel free to suggest or improve this locale/translation infrastructure!
 
@@ -273,7 +299,7 @@ Example:
 
 ```ruby
 class MainController < ApplicationController
-	include WorldFlags::All
+	include WorldFlags::Helper::All
 
 	before_filter :set_locale	
 end

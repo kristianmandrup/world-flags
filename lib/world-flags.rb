@@ -50,6 +50,8 @@ module WorldFlags
 		# Locale translation helper macros
 
 		def flag_code code = :en
+			# ensure that 'en_US' becomes simply 'us'
+			code = code.gsub(/^\w+_/, '').downcase
 			locale_flag_map[code.to_sym] || code
 		end
 
@@ -59,17 +61,16 @@ module WorldFlags
 
 		attr_writer :locale_flag_map
 
-		# translate locales to flag code: ISO_3166-1_alpha-2
+		# override using fx 'locale_to_country_code.json' file
 		def locale_flag_map
-			@locale_map ||= {
-				:en => :us,
-				:da => :dk,
-				:sv => :se,
-				:nb => :no,
-				:'sv_SE' => :se,
-				:'en_UK' => :gb,
-				:'en_US' => :us
-			}
+			@locale_map ||= { 
+				"en" => "us",
+  			"da" => "dk",
+  			"sv" => "se",
+  			"sq" => "al",
+  			"nb" => "no",
+  			"ja" => "jp"
+  		}
 		end
 
 		def flag_locale_map
@@ -112,8 +113,16 @@ module WorldFlags
 		def find_language_map loc
 			# return Countries.send(loc) if Countries.respond_to?(loc)
 			[loc, flag_code(loc), locale(loc)].each do |code|
-				return Languages.send(locale) if Languages.respond_to?(locale)
+				return languages.send(locale) if languages.respond_to?(locale)
 			end
+		end
+
+		def countries
+			@countries ||= Countries.new
+		end
+
+		def languages
+			@languages ||= Languages.new
 		end
 
 		# Country helper macros
