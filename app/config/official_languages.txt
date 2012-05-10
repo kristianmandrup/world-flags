@@ -1,0 +1,413 @@
+%% http://en.wikipedia.org/wiki/List_of_official_languages
+Abaza:
+Karachay–Cherkessia#
+Adyghe:
+Adygea#
+Aghul:
+Dagestan#
+Albanian:
+Serbia#
+Macedonia#
+Albanian:
+Montenegro#
+Altay:
+Republic of Altay#
+Aranese#
+Armenian:
+Nagorno Karabagh#
+Assamese:
+India#
+Assam#
+Avar:
+Dagestan#
+Azeri:
+Dagestan#
+Balkar:
+Kabardino-Balkaria#
+Bashkir:
+Bashkortostan#
+Basque:
+Basque Community#
+Navarre#
+Bengali:
+India#
+Andaman Islands#
+Nicobar Islands#
+Assam#
+Tripura#
+West Bengal#
+Bosnian:
+Serbia#
+Sandžak#
+Montenegro#
+Buryat:
+Buryatia#
+Zabaykalsky Krai#
+Agin-Buryat Okrug#
+Cantonese Chinese:
+Hong Kong#
+Macau#
+Catalan:
+Spain
+Balearic Islands#
+Catalonia#
+Valencia#
+France#
+Pyrénées Orientales#
+Italy#
+Alguero#
+Chechen:
+Chechnya#
+Dagestan#
+Cherkess:
+Karachay–Cherkessia#
+Chipewyan:
+Northwest Territories#
+Chukchi:
+Sakha#
+Chuvash#
+Chuvashia#
+Cree:
+Northwest Territories#
+Crimean Tatar#
+Crimea#
+Croatian:
+Austria
+Burgenland#
+Molise#
+Serbia
+Vojvodina#
+Montenegro#
+Dargwa:
+Dagestan#
+Dolgan:
+Sakha#
+Dutch:
+The Nord-Pas-de-Calais#
+English:
+Canada#
+Alberta#
+British Columbia#
+Manitoba#
+Newfoundland#
+Labrador#
+Nova Scotia#
+Ontario#
+Prince Edward Island#
+Saskatchewan#
+New Brunswick#
+Northwest Territories#
+Nunavut#
+Yukon#
+The United Kingdom:
+England#
+Northern Ireland#
+Scotland#
+Wales#
+Isle of Man#
+Guernsey#
+Jersey#
+Erzya:
+Mordovia#
+Even:
+Sakha#
+Evenki:
+Sakha#
+Faroese:
+Faroe Islands#
+Finnish:
+Karelia#
+French:
+Canada#
+New Brunswick#
+Northwest Territories#
+Nunavut#
+Quebec#
+Yukon#
+Guernsey#
+Jersey#
+Pondicherry#
+Gagauz:
+Gagauzia#
+Galician:
+Spain#
+Galicia#
+German:
+Italy#
+South Tyrol#
+Greek:
+Albania#
+Italy#
+Salento#
+Calabria#
+Guaraní:
+Argentina#
+Corrientes Province#
+Gujarati:
+India#
+Dadra and Nagar Haveli#
+Daman and Diu#
+Gujarat#
+Hawaiian:
+Hawaii#
+Hungarian:
+Serbia#
+Vojvodina#
+Romania#
+Slovenia#
+Croatia#
+Slovakia#
+Austria#
+Ingush:
+Ingushetia#
+Inuktitut:
+Nunavut#
+Irish:
+Northern Ireland#
+Italian:
+Croatia#
+Istria county#
+Slovenia#
+Japanese:
+Palau#
+Angaur#
+Kabardian#
+Kabardino-Balkaria#
+Kalaallisut:
+Greenland#
+Kalmyk:
+Kalmykia#
+India#
+Karnataka#
+Karachay:
+Karachay–Cherkessia#
+Karelian:
+Karelia#
+Kashmiri:
+India#
+Jammu#
+Kashmir#
+Kazakh:
+Altay#
+Republic of China#
+Mongolia
+Khakas:
+Khakassia#
+Khanty:
+Khanty–Mansi Okrug#
+Yamalo-Nenets Okrug#
+Komi:
+Komi#
+Komi-Permyak:
+Perm Krai#
+Komi-Permyak Okrug#
+Korean:
+Republic of China
+Changbai#
+Yanbian#
+Kumyk:
+Dagestan#
+Kyrgyz:
+Republic of China#
+Kizilsu#
+Lak:
+Dagestan#
+Lezgian#
+Dagestan#
+Macedonian:
+Serbia#
+Malayalam:
+India#
+Kerala#
+Pondicherry#
+Lakshadweep#
+Mansi:
+Khanty–Mansi Okrug#
+Marathi:
+India#
+Maharashtra#
+Goa#
+Dadra and Nagar Haveli#
+Daman and Diu#
+Mari#
+Mari El#
+Mayan:
+Mexico#
+Guatemala#
+Belize#
+Honduras#
+El Salvador#
+Moksha:
+Mordovia#
+Mongolian:
+Republic of China#
+Inner Mongolia#
+Haixi#
+Bortala#
+Bayin'gholin#
+Dorbod#
+Qian Gorlos#
+Harqin Left#
+Fuxin#
+Weichang#
+Subei#
+Henan#
+Náhuatl:
+Mexico#
+El Salvador#
+Nenets:
+Khanty–Mansi Okrug#
+Yamalo-Nenets Okrug#
+Nepali:
+India#
+Nogai:
+Dagestan#
+Karachay–Cherkessia#
+Occitan (Aranese):
+Aran Valley#
+Oriya:
+India#
+Orissa#
+Ossetic#
+North Ossetia—Alania#
+Portuguese:
+Macau#
+Punjabi:
+Pakistan
+India#
+Punjab#
+Delhi#
+Romanian:
+Vojvodina#
+Adygea#
+Altay#
+Bashkortostan#
+Buryatia#
+Chechnya#
+Chuvashia#
+Dagestan#
+Ingushetia#
+Kabardino-Balkaria#
+Kalmykia#
+Karachay–Cherkessia#
+Karelia#
+Khakassia#
+Komi#
+Mari El#
+Mordovia#
+North Ossetia—Alania#
+Sakha#
+Tatarstan#
+Tyva#
+Udmurtia#
+Russia#
+Rusyn:
+Vojvodina#
+Ukraine#
+Zakarapts'ka#
+Rutul:
+Dagestan#
+Sakha:
+Sakha#
+Sanskrit:
+India#
+Sami:
+Finland#
+Norway#
+Sweden#
+Sarikoli:
+Republic of China#
+Taxkorgan#
+Scottish Gaelic:
+Scotland#
+Scots:
+Scotland#
+Northern Ireland#
+Donegal#
+Selkup:
+Yamalo-Nenets Okrug#
+Sindhi:
+India#
+Pakistan#
+Slovak:
+Serbia#
+Vojvodina#
+Slovene:
+Italy#
+Friuli-Venezia Giulia#
+Austria#
+Carinthia#
+Spanish:
+Puerto Rico
+Philippines
+Tabasaran:
+Dagestan#
+Tahitian:
+French Polynesia#
+Tamil:
+India#
+Andaman Islands#
+Nicobar Islands#
+Pondicherry#
+Tamil Nadu#
+Tat:
+Dagestan#
+Tatar:
+Tatarstan#
+Telugu:
+India#
+Andhra Pradesh#
+Pondicherry#
+Tibetan:
+Tibet#
+Aba#
+Garzê#
+Diqing#
+Wenshan#
+Gannan#
+Haibai#
+Hainan#
+Huangnan#
+Golog#
+Gyêgu#
+Haixi#
+Muli#
+Tianzhu#
+Tsakhur:
+Dagestan#
+Tswana:
+South Africa#
+Turkish:
+Macedonia#
+Centar Župa#
+Kosovo#
+Bulgaria#
+Tuvan:
+Tyva#
+Udmurt:
+Udmurtia#
+Urdu:
+India#
+Jammu#
+Kashmir#
+Delhi Territory#
+Uttar Pradesh state#
+Bihar state#
+Andhra Pradesh#
+Uyghur:
+Xinjiang#
+Veps:
+Karelia#
+Vietnamese:
+China#
+Cambodia#
+Laos#
+Welsh:
+Wales#
+Yiddish:
+Russia#
+Yukaghir:
+Sakha#
+Zhuang:
+Guangxi#
+Lianshan#
