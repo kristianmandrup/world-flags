@@ -1,0 +1,185 @@
+Afrikaans af  af  : South africa
+Albanian  sq  sq  : Albania
+Amharic am  am  : Ethiopia    
+Arabic - Algeria  ar  ar-dz
+Arabic - Bahrain  ar  ar-bh
+Arabic - Egypt  ar  ar-eg
+Arabic - Iraq ar  ar-iq
+Arabic - Jordan ar  ar-jo
+Arabic - Kuwait ar  ar-kw
+Arabic - Lebanon  ar  ar-lb
+Arabic - Libya  ar  ar-ly
+Arabic - Morocco  ar  ar-ma
+Arabic - Oman ar  ar-om
+Arabic - Qatar  ar  ar-qa
+Arabic - Saudi Arabia ar  ar-sa
+Arabic - Syria  ar  ar-sy
+Arabic - Tunisia  ar  ar-tn
+Arabic - United Arab Emirates ar  ar-ae
+Arabic - Yemen  ar  ar-ye
+Armenian  hy  hy : Armenia
+Assamese  as  as
+Azeri - Cyrillic  az  az-az : Azerbaijan
+Azeri - Latin az  az-az : Azerbaijan
+Basque  eu  eu  : Basque Country
+Belarusian  be  be  : Belarus
+Bengali - Bangladesh  bn  bn
+Bengali - India bn bn-in
+Bosnian bs  bs : Bosnia
+Bulgarian bg  bg  : Bulgaria
+Burmese my  my  : Burma
+Catalan ca  ca  : Catalania
+Chinese - China zh  zh-cn 
+Chinese - Hong Kong SAR zh  zh-hk    
+Chinese - Macau SAR zh  zh-mo 
+Chinese - Singapore zh  zh-sg 
+Chinese - Taiwan  zh  zh-tw 
+Croatian  hr  hr
+Czech cs  cs - Czech Republic
+Danish  da  da - Denmark
+Divehi; Dhivehi; Maldivian  dv  dv  : Maldives
+Dutch - Belgium nl  nl-be 
+Dutch - Netherlands nl  nl-nl
+Edo jp jp : Japan
+English - Australia en  en-au
+English - Belize  en  en-bz
+English - Canada  en  en-ca
+English - Caribbean en  en-cb
+English - Great Britain en  en-gb
+English - India en  en-in
+English - Ireland en  en-ie
+English - Jamaica en  en-jm
+English - New Zealand en  en-nz
+English - Phillippines  en  en-ph
+English - Southern Africa en  en-za
+English - Trinidad  en  en-tt
+English - United States en  en-us
+English - Zimbabwe  en
+Estonian  et  et : Estonia
+Faroese fo  fo  : Faroe Islands
+Farsi - Persian fa  fa  : Farsi
+Filipino      : Philippines
+Finnish fi  fi  : Finland
+French - Belgium  fr  fr-be
+French - Cameroon fr    
+French - Canada fr  fr-ca
+French - Congo  fr    
+French - Cote d'Ivoire  fr
+French - France fr  fr-fr
+French - Luxembourg fr  fr-lu
+French - Mali fr
+French - Monaco fr
+French - Morocco  fr
+French - Senegal  fr
+French - Switzerland  fr  fr-ch
+French - West Indies  fr
+Frisian - Netherlands
+Macedonian  mk  mk : Macedonia
+Gaelic - Ireland  gd  gd-ie    
+Gaelic - Scotland gd  gd
+Galician  gl : Galicia
+Georgian  ka : Georgia
+German - Austria  de  de-at
+German - Germany  de  de-de
+German - Liechtenstein  de  de-li
+German - Luxembourg de  de-lu
+German - Switzerland  de  de-ch
+Greek el  el : Greece
+Guarani - Paraguay  gn  gn
+Gujarati  gu  gu  : Gujarat
+Hebrew  he  he  : Israel
+Hindi hi  hi  1081  439 : India
+Hungarian hu  hu  : Hungary
+Icelandic is  is  : Iceland
+Igbo - Nigeria
+Indonesian  id  id : Indonesia
+Italian - Italy it  it-it
+Italian - Switzerland it  it-ch
+Japanese  ja  ja : Japan
+Kannada kn  kn  : Karnataka    
+Kashmiri  ks  ks  : Kashmir
+Kazakh  kk  kk : Kazakhstan
+Khmer km  km  : Cambodia
+Konkani : Goa
+Korean  ko  ko  : Korea
+Kyrgyz - Cyrillic     
+Lao lo  lo : Laos
+Latvian lv  lv  : Latvia
+Lithuanian  lt  lt  : Lithuania
+Malay - Brunei  ms  ms-bn
+Malay - Malaysia  ms  ms-my
+Malayalam ml  ml   : Kerala
+Maltese mt  mt  : Malta
+Manipuri : Manipur 
+Maori mi  mi  : New Zealand
+Marathi mr  mr  : Maharashtra
+Mongolian mn  mn  : Mongolia
+Nepali  ne  ne  : Nepal
+Norwegian - Bokml nb  no-no : Norway
+Norwegian - Nynorsk nn  : Norway
+Oriya or  or  : Oriya
+Polish  pl  pl  : Poland
+Portuguese - Brazil pt  pt-br 
+Portuguese - Portugal pt  pt-pt
+Punjabi pa  pa  : Punjab
+Raeto-Romance rm  rm  : Rhaetia
+Romanian - Moldova  ro  ro-mo
+Romanian - Romania  ro  ro
+Russian ru  ru  : Russia
+Russian - Moldova ru  ru-mo
+Sami Lappish      : Lapland
+Sanskrit  sa  sa  : Uttarakhand
+Serbian - Cyrillic  sr  sr-sp : Serbia
+Serbian - Latin sr  sr-sp : Serbia
+Sesotho      : South Africa
+Setswana  tn  tn  : South Africa 
+Sindhi  sd  sd  : Sindh
+Sinhalese  si  si : Sri Lanka
+Slovak  sk  sk  : Slovakia
+Slovenian sl  sl  : Slovenia
+Somali  so  so  : Somalia
+Sorbian sb  sb  : Germany
+Spanish - Argentina es  es-ar
+Spanish - Bolivia es  es-bo
+Spanish - Chile es  es-cl
+Spanish - Colombia  es  es-co
+Spanish - Costa Rica  es  es-cr
+Spanish - Dominican Republic  es  es-do
+Spanish - Ecuador es  es-ec
+Spanish - El Salvador es  es-sv
+Spanish - Guatemala es  es-gt
+Spanish - Honduras  es  es-hn
+Spanish - Mexico  es  es-mx 
+Spanish - Nicaragua es  es-ni
+Spanish - Panama  es  es-pa
+Spanish - Paraguay  es  es-py
+Spanish - Peru  es  es-pe
+Spanish - Puerto Rico es  es-pr
+Spanish - Spain es  es-es
+Spanish - Uruguay es  es-uy
+Spanish - Venezuela es  es-ve
+Swahili - Kenya sw  sw-ke : 
+Swahili - Tanzania sw sw-ta
+Swahili - Mozambique sw sw-mz
+Swedish - Finland sv  sv-fi
+Swedish - Sweden  sv  sv-se
+Syriac    : Syria
+Tajik tg  tg : Tajikistan
+Tamil ta  ta : Sri Lanka
+Tatar tt  tt  : Tatarstan
+Telugu  te  te  : Andhra Pradesh
+Thai  th  th  : Thailand
+Tibetan bo  bo  : Tibet
+Tsonga  ts  ts  : South Africa
+Turkish tr  tr  : Turkey
+Turkmen tk  tk  : Turkmenistan
+Ukrainian uk  uk  : Ukraine
+Urdu  ur  ur  : Pakistan
+Uzbek - Cyrillic : Uzbekistan
+Uzbek - Latin uz  uz-uz : Uzbekistan
+Venda :  South Africa
+Vietnamese  vi  vi  : Vietnam
+Welsh cy  cy  : Wales
+Xhosa xh  xh  :  South Africa
+Yiddish yi  yi  : Israel
+Zulu  zu  zu  : South Africa

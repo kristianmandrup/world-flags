@@ -80,6 +80,8 @@ Notice that it is a locale code pointing to a map of *ISO_3166-1_alpha-2* codes 
 }
 ```
 
+You can use [localized_language_select](https://github.com/kristianmandrup/localized_language_select) and [localized_country_select](https://github.com/karmi/localized_country_select) in order to generate the locale translation files needed for each locale. It would be nice to extract the pure rake/generator functionality in separate gems for cross-use in various projects.
+
 An english translation file of country codes (in json format) can be found in `app/config/country_codes`.
 
 ```ruby
