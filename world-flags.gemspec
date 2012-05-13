@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.3.4"
+  s.version = "0.3.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -34,7 +34,6 @@ Gem::Specification.new do |s|
     "lib/world-flags.rb",
     "lib/world_flags/core_ext.rb",
     "lib/world_flags/countries.rb",
-    "lib/world_flags/country_util.rb",
     "lib/world_flags/helper/all.rb",
     "lib/world_flags/helper/browser.rb",
     "lib/world_flags/helper/geo.rb",
@@ -42,9 +41,12 @@ Gem::Specification.new do |s|
     "lib/world_flags/helper/view.rb",
     "lib/world_flags/helper/view/util.rb",
     "lib/world_flags/helpers.rb",
-    "lib/world_flags/lang_util.rb",
     "lib/world_flags/languages.rb",
     "lib/world_flags/rails/engine.rb",
+    "lib/world_flags/util.rb",
+    "lib/world_flags/util/config.rb",
+    "lib/world_flags/util/country.rb",
+    "lib/world_flags/util/language.rb",
     "sandbox/country_codes_table.html",
     "sandbox/extract_codes.rb",
     "sandbox/languages_country_extract.rb",
@@ -53,8 +55,11 @@ Gem::Specification.new do |s|
     "sandbox/official_languages.txt",
     "spec/spec_helper.rb",
     "spec/world_flags/country_spec.rb",
+    "spec/world_flags/helper/locale_helper_spec.rb",
+    "spec/world_flags/json/json_countries_spec.rb",
+    "spec/world_flags/json/json_languages_spec.rb",
+    "spec/world_flags/json/locale_flag_spec.rb",
     "spec/world_flags/language_spec.rb",
-    "spec/world_flags/locale_helper_spec.rb",
     "spec/world_flags/view_helper_spec.rb",
     "vendor/assets/images/flags/flags16.png",
     "vendor/assets/images/flags/flags16_semi.png",
