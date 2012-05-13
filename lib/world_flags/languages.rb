@@ -22,7 +22,7 @@ module WorldFlags
 		end
 
 		def da
-			{
+			@da ||= {
 				:gb => 'Engelsk',
 				:us => 'Engelsk',				
 				:es => 'Spansk',
@@ -36,7 +36,7 @@ module WorldFlags
 		alias_method :dk, :da
 
 		def se
-			{
+			@se ||= {
 				:gb => 'Engelska',
 				:us => 'Engelska',				
 				:es => 'Spansk',
@@ -50,7 +50,7 @@ module WorldFlags
 		alias_method :sv, :se
 
 		def no
-			{
+			@no ||= {
 				:gb => 'Engelsk',
 				:us => 'Engelsk',				
 				:es => 'Spansk',

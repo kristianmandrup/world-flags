@@ -1,7 +1,7 @@
 module WorldFlags
 	class Countries < Hashie::Mash
 		def en
-			{
+			@en ||= {
 				:ar => 'Argentina',
 				:br => 'Brazil',
 				:gb => 'Great Britain',
@@ -19,7 +19,7 @@ module WorldFlags
 		end
 
 		def da
-			{
+			@da ||= {
 				:gb => 'England',
 				:us => 'USA',				
 				:es => 'Spanien',

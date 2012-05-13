@@ -29,8 +29,8 @@ module WorldFlags
 					extra_options = title ? {:title => title } : {}			
 					selected = flag_selected?(code, options) ? ' selected' : ''
 
-					language_name = WorldFlags.language(:en, code)
-					country_name = WorldFlags.country(:en, code)
+					language_name = WorldFlags.language(locale, code)
+					country_name = WorldFlags.country(locale, code)
 
 					# add semi class if not selected
 					semi = (selected.blank? ? ' semi' : '') if options[:with_semi]

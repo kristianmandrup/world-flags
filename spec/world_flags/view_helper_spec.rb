@@ -7,7 +7,9 @@ describe WorldFlags::Helper::View do
   before do
     WorldFlags.auto_select!
     I18n.locale = 'ar'
-    WorldFlags.active_locales = [:da, :sv, :no, :en, :ar]
+    WorldFlags.active_locales = [:da, :sv, :nb, :en, :ar]
+
+    WorldFlags.raise_error!
   end
 
   it "should be empty, with an empty block" do
@@ -37,38 +39,66 @@ describe WorldFlags::Helper::View do
     output = flags_list 32 do
       flags [:ar, :gb]
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"British English\" data-locale=\"en_UK\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"Great Britain\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
   end
 
   it "should list flags using args" do
     output = flags_list 32 do
       flags :ar, :gb
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country=\"British English\" data-locale=\"en_UK\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"Great Britain\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
   end
 
   it "should list flags using args and :with_semi" do
     output = flags_list 32 do
       flags :ar, :gb, :with_semi => true
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb semi\" data-cc=\"gb\" data-country=\"British English\" data-locale=\"en_UK\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb semi\" data-cc=\"gb\" data-country_name=\"Great Britain\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
   end
 
   it "should list flags" do
     output = flag_title :ar, 'Argentina'
-    output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country=\"Argentina\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
+    output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
   end
 
   describe 'Countries' do
-    before do
-      I18n.locale = 'da'
+    context 'Danish locale' do
+      before do
+        I18n.locale = 'da'
+      end
+
+      it "should list nordic flags using args and :with_semi" do
+        output = flags_list 32 do
+          flags :dk, :se, :no, :with_semi => true, :country => :da
+        end
+        output.should == "<ul class=\"f32\"><li class=\"flag dk selected\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"USA\" data-language_name=\"Svensk\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+      end
     end
 
-    it "should list nordic flags using args and :with_semi" do
-      output = flags_list 32 do
-        flags :dk, :se, :no, :with_semi => true, :country => :da
+    context 'Swedish locale' do
+      before do
+        I18n.locale = 'sv'
       end
-      output.should == "<ul class=\"f32\"><li class=\"flag dk selected\" data-cc=\"dk\" data-country=\"Danmark\" data-locale=\"da\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country=\"Sverige\" data-locale=\"sv\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country=\"Norge\" data-locale=\"no\">&nbsp;</li></ul>"
+
+      it "should list nordic flags using args and :with_semi" do
+        output = flags_list 32 do
+          flags :dk, :se, :no, :with_semi => true, :country => :da
+        end
+        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se selected\" data-cc=\"se\" data-country_name=\"USA\" data-language_name=\"Svenska\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+      end
+    end
+
+    context 'Norwegian locale' do
+      before do
+        I18n.locale = 'nb'
+      end
+
+      it "should list nordic flags using args and :with_semi" do
+        output = flags_list 32 do
+          flags :dk, :se, :no, :with_semi => true, :country => :da
+        end
+        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svensk\" data-locale=\"se\">&nbsp;</li><li class=\"flag no selected\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+      end
     end
   end  
 end
