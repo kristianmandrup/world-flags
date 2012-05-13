@@ -7,8 +7,8 @@ describe WorldFlags::Helper::View do
   before do
     WorldFlags.auto_select!
     I18n.locale = 'ar'
-    WorldFlags.active_locales = [:da, :sv, :nb, :en, :ar]
-
+    WorldFlags.available_locales = [:da, :sv, :nb, :en]
+    WorldFlags.reset!
     WorldFlags.raise_error!
   end
 
@@ -39,26 +39,26 @@ describe WorldFlags::Helper::View do
     output = flags_list 32 do
       flags [:ar, :gb]
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"Great Britain\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
   end
 
   it "should list flags using args" do
     output = flags_list 32 do
       flags :ar, :gb
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"Great Britain\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
   end
 
   it "should list flags using args and :with_semi" do
     output = flags_list 32 do
       flags :ar, :gb, :with_semi => true
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb semi\" data-cc=\"gb\" data-country_name=\"Great Britain\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb semi\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
   end
 
   it "should list flags" do
     output = flag_title :ar, 'Argentina'
-    output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Argentinian Spanish\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
+    output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
   end
 
   describe 'Countries' do
@@ -71,7 +71,7 @@ describe WorldFlags::Helper::View do
         output = flags_list 32 do
           flags :dk, :se, :no, :with_semi => true, :country => :da
         end
-        output.should == "<ul class=\"f32\"><li class=\"flag dk selected\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"USA\" data-language_name=\"Svensk\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+        output.should == "<ul class=\"f32\"><li class=\"flag dk selected\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svensk\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
       end
     end
 
@@ -84,7 +84,7 @@ describe WorldFlags::Helper::View do
         output = flags_list 32 do
           flags :dk, :se, :no, :with_semi => true, :country => :da
         end
-        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se selected\" data-cc=\"se\" data-country_name=\"USA\" data-language_name=\"Svenska\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se selected\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svenska\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
       end
     end
 

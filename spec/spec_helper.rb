@@ -13,6 +13,8 @@ require 'world-flags'
 
 # WorldFlags::Rails::Engine.add_view_ext
 
+SPEC_DIR = File.dirname(__FILE__)
+
 module ControllerTestHelpers
 
   def self.included(base)

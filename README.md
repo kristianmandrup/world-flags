@@ -67,7 +67,7 @@ You can run the Rails generator `world_flags:init` in order to create a basic in
 You can setup WorldFlags to use a localization map for the labels of the flag icons
 
 ```ruby
-WorldFlags.languages = some_language_hash # fx loaded from a yaml file
+WorldFlags.language_map = some_language_hash # fx loaded from a yaml file
 WorldFlags.countries = some_country_hash # fx loaded from a yaml file
 ```
 
@@ -96,8 +96,10 @@ def countries locale = :en
   JSON.parse File.read(path)
 end
 
-WorldFlags.countries = countries(:en)
+WorldFlags.countries = Hashie::Mash.new countries
 ```
+
+PS: See the json specs for examples.
 
 ### Languages mappings
 
@@ -109,20 +111,22 @@ def languages locale = :en
   JSON.parse File.read(path)
 end
 
-WorldFlags.languages = languages(:en)
+WorldFlags.languages = Hashie::Mash.new languages
 ```
 
-Another approach more suited to adding single files is the following. Note that both `countrieds` and `languages` are instances of classes that inherit from the `Hashie::Mash` class (hash access via method missing).
+PS: See the json specs for examples.
+
+Another approach more suited to adding single files is the following. Note that both `countries` and `languages` are instances of classes that inherit from the `Hashie::Mash` class (hash access via method missing).
 
 ```
 WorldFlags.countries.en = countries_en
 WorldFlags.languages.en = languages_en
 ```
 
-You can set the active locales using:
+You can set the available locales. By default they are the same as `I18n.available_locales`.
 
 ```ruby
-WorldFlags.active_locales = [:en, :da]
+WorldFlags.available_locales = [:en, :da]
 ```
 
 ## Locale to country code
@@ -248,7 +252,6 @@ A small helper module is provided that can be inserted into a Controller or wher
 ```ruby
 class MainController < ApplicationController
   def home
-  	@json = Property.all.to_gmaps4rails
     @country_code = WorldFlags::Helper::Geo.ip_country_code
   end
 end
@@ -262,7 +265,6 @@ class MainController < ApplicationController
 	include WorldFlags::Helper::Browser
 
   def home
-  	@json = Property.all.to_gmaps4rails
     @country_code = ip_country_code
     @locale = browser_locale
   end
@@ -305,22 +307,15 @@ class MainController < ApplicationController
 end
 ```
 
-You can configure valid locales for use with WorldFlags in an initializer, fx `initializers/locales.rb` :
-
-```ruby
-# fx [:da, :en] or even ['da', 'en']
-WorldFlags.valid_locales = my_valid_locales_list 
-```
-
-Note that if not set, this list is preconfigured to: `['en', 'de', 'es', 'ru']`
-
-Alternatively configure in your `application.rb` file:
+You can define the available locales for your app in your `application.rb` file:
 
 ```ruby
 class Application < Rails::Application
   # ...
   config.i18n.available_locales = [:da, :sv, :no]
 ``
+
+The perhaps sync i18n `I18n.available_locales = MyCool::Application.i18n.available_locales`
 
 Note: This approach in turn works well with the `i18n-docs` gem ;)
 

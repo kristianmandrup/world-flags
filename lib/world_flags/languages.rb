@@ -1,9 +1,9 @@
 module WorldFlags
 	class Languages < Hashie::Mash
 		def en
-			@en ||= {
-				:ar => 'Argentinian Spanish',
-				:br => 'Brazilian Portuguese',
+			{
+				:ar => 'Spanish',
+				:br => 'Portuguese',
 				:po => 'Portuguese',
 				:gr => 'Greek',
 				:gb => 'British English',
@@ -14,43 +14,37 @@ module WorldFlags
 				:de => 'German',
 				:dk => 'Danish',
 				:se => 'Swedish',
-				:sv => 'Swedish',
 				:no => 'Norwegian',
-				:nb => 'Norwegian',
 				:fi => 'Finnish'
 			}
 		end
 
 		def da
-			@da ||= {
+			{
 				:gb => 'Engelsk',
 				:us => 'Engelsk',				
 				:es => 'Spansk',
 				:de => 'Tysk',
 				:dk => 'Dansk',
 				:se => 'Svensk',
-				:sv => 'Svensk',
 				:no => 'Norsk'
 			}
 		end
-		alias_method :dk, :da
 
-		def se
-			@se ||= {
+		def sv
+			{
 				:gb => 'Engelska',
 				:us => 'Engelska',				
 				:es => 'Spansk',
 				:de => 'Tysk',
 				:dk => 'Dansk',
 				:se => 'Svenska',
-				:sv => 'Svenska',
 				:no => 'Norsk'
 			}
 		end
-		alias_method :sv, :se
 
-		def no
-			@no ||= {
+		def nb
+			{
 				:gb => 'Engelsk',
 				:us => 'Engelsk',				
 				:es => 'Spansk',
@@ -61,6 +55,5 @@ module WorldFlags
 				:no => 'Norsk'
 			}
 		end
-		alias_method :nb, :no
 	end
 end
