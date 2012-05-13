@@ -356,6 +356,10 @@ $("li.flag").click(function() {
 });
 ```
 
+## TODO for version 1.0
+
+The locale languages config file should include locale codes for each country/language combination such as 'en_US' etc.
+
 ## Enjoy
 
 Copyright (2012) Kristian Mandrup

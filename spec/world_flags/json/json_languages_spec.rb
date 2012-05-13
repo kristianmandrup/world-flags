@@ -22,6 +22,13 @@ describe WorldFlags::Helper::View do
     output = flags_list 32 do
       flags [:ar, :gb]
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"English\" data-locale=\"gb\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"es-ar:Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"en-gb:English\" data-locale=\"gb\">&nbsp;</li></ul>"
+  end
+
+  it "should list flags for Zaire with multiple language combis" do
+    output = flags_list 32 do
+      flags [:tw]
+    end
+    output.should == "<ul class=\"f32\"><li class=\"flag tw\" data-cc=\"tw\" data-country_name=\"United States\" data-language_name=\"zh:Chinese zh-tw:Taiwanese\" data-locale=\"tw\">&nbsp;</li></ul>"
   end
 end
