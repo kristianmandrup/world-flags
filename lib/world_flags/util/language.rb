@@ -17,7 +17,16 @@ module WorldFlags
         raise "No language-locale map defined for locale: #{locale} or :en in #{languages.inspect}" if locale_languages_map.blank?
 
         # raise("No language map defined for language code: #{code} in #{locale_languages_map[code]}")      
-        locale_languages_map[code] ? locale_languages_map[code] : locale_languages_map[default_code_used]         
+        code_language = locale_languages_map[code] ? locale_languages_map[code] : locale_languages_map[default_code_used]         
+
+        case code_language
+        when Array
+          code_language.join(',')
+        when String
+          code_language
+        else
+          raise "The language in the language map must be either a String or Array, was #{code_language.inspect}"
+        end
       rescue Exception => e
         raise e if WorldFlags.raise_error?
         "Undefined"

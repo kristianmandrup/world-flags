@@ -15,7 +15,7 @@ module WorldFlags
 
       # ensure all country/language/domain types are mapped to their equivalent locale code
       def locales
-        locale_sources.downcase.map {|loc| WorldFlags.locale(loc) }
+        locale_sources.compact.downcase.map {|loc| WorldFlags.locale(loc) unless loc.blank? }
       end
 
       def locale_sources

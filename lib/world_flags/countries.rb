@@ -14,7 +14,8 @@ module WorldFlags
 				:dk => 'Denmark',
 				:se => 'Sweden',
 				:no => 'Norway',
-				:fi => 'Finland'
+				:fi => 'Finland',
+				:tw => 'Taiwan'
 			}
 		end
 

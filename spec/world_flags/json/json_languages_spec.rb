@@ -29,6 +29,6 @@ describe WorldFlags::Helper::View do
     output = flags_list 32 do
       flags [:tw]
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag tw\" data-cc=\"tw\" data-country_name=\"United States\" data-language_name=\"zh:Chinese zh-tw:Taiwanese\" data-locale=\"tw\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32\"><li class=\"flag tw\" data-cc=\"tw\" data-country_name=\"Taiwan\" data-language_name=\"zh:Chinese,zh-tw:Taiwanese\" data-locale=\"tw\">&nbsp;</li></ul>"
   end
 end
