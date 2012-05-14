@@ -25,17 +25,19 @@ module WorldFlags
 				end
 
 				def self.flag_options code, title, name, options = {}
-					locale = WorldFlags.locale(code)
+					locale = I18n.locale
 					extra_options = title ? {:title => title } : {}			
 					selected = flag_selected?(code, options) ? ' selected' : ''
 
-					language_name = WorldFlags.language(locale, code)
-					country_name = WorldFlags.country(locale, code)
+					language_name = WorldFlags.language(code, locale)
+					country_name = WorldFlags.country(code, locale)
 
 					# add semi class if not selected
 					semi = (selected.blank? ? ' semi' : '') if options[:with_semi]
 
-					{:class => "flag #{code}#{selected}#{semi}", :'data-country_name' => country_name, :'data-language_name' => language_name, :'data-cc' => code, :'data-locale' => locale}.merge(options[:html] || {}).merge(extra_options)
+					flag_locale = WorldFlags.locale(code)
+
+					{:class => "flag #{code}#{selected}#{semi}", :'data-country_name' => country_name, :'data-language_name' => language_name, :'data-cc' => code, :'data-locale' => flag_locale}.merge(options[:html] || {}).merge(extra_options)
 				end
 
 				def self.flag_selected? code, options = {}

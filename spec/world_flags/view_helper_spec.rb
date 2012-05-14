@@ -12,6 +12,10 @@ describe WorldFlags::Helper::View do
     WorldFlags.raise_error!
   end
 
+  it 'should translate flag code to locale' do
+    WorldFlags.locale('dk').to_s.should == 'da'
+  end
+
   it "should be empty, with an empty block" do
     output = flags_list do
     end
@@ -71,7 +75,7 @@ describe WorldFlags::Helper::View do
         output = flags_list 32 do
           flags :dk, :se, :no, :with_semi => true, :country => :da
         end
-        output.should == "<ul class=\"f32\"><li class=\"flag dk selected\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svensk\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+        output.should == "<ul class=\"f32\"><li class=\"flag dk selected\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"da\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svensk\" data-locale=\"sv\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"nb\">&nbsp;</li></ul>"
       end
     end
 
@@ -84,7 +88,7 @@ describe WorldFlags::Helper::View do
         output = flags_list 32 do
           flags :dk, :se, :no, :with_semi => true, :country => :da
         end
-        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se selected\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svenska\" data-locale=\"se\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"da\">&nbsp;</li><li class=\"flag se selected\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svenska\" data-locale=\"sv\">&nbsp;</li><li class=\"flag no semi\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"nb\">&nbsp;</li></ul>"
       end
     end
 
@@ -97,7 +101,7 @@ describe WorldFlags::Helper::View do
         output = flags_list 32 do
           flags :dk, :se, :no, :with_semi => true, :country => :da
         end
-        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"dk\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svensk\" data-locale=\"se\">&nbsp;</li><li class=\"flag no selected\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"no\">&nbsp;</li></ul>"
+        output.should == "<ul class=\"f32\"><li class=\"flag dk semi\" data-cc=\"dk\" data-country_name=\"Danmark\" data-language_name=\"Dansk\" data-locale=\"da\">&nbsp;</li><li class=\"flag se semi\" data-cc=\"se\" data-country_name=\"Sverige\" data-language_name=\"Svensk\" data-locale=\"sv\">&nbsp;</li><li class=\"flag no selected\" data-cc=\"no\" data-country_name=\"Norge\" data-language_name=\"Norsk\" data-locale=\"nb\">&nbsp;</li></ul>"
       end
     end
   end  

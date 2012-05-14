@@ -37,7 +37,7 @@ module WorldFlags
 
 		# see core_ext
 		def flag_locale_map
-			locale_flag_map.hash_revert
+			@flag_locale_map ||= keys_to_sym(locale_flag_map.hash_revert)
 		end
 
 		protected

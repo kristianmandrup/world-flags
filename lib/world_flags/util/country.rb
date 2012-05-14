@@ -13,6 +13,7 @@ module WorldFlags
 
       def country code = :us, locale = :en
         locale ||= default_locale_used
+        locale = WorldFlags.locale(locale).to_sym
 
         locale_countries_map = countries_map[locale] || countries_map[default_locale_used]
         locale_countries_map = countries_map[:en] if locale_countries_map.blank?
