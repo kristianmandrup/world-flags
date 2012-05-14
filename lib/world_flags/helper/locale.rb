@@ -13,8 +13,13 @@ module WorldFlags
         end
       end
 
+      # ensure all country/language/domain types are mapped to their equivalent locale code
       def locales
-        [params[:locale], extract_locale_from_tld, browser_locale, ip_country_code, I18n.default_locale].downcase
+        locale_sources.downcase.map {|loc| WorldFlags.locale(loc) }
+      end
+
+      def locale_sources
+        [params[:locale], extract_locale_from_tld, browser_locale, ip_country_code, I18n.default_locale]
       end
  
       # Get locale from top-level domain or return nil if such locale is not available
@@ -24,9 +29,16 @@ module WorldFlags
       #   127.0.0.1 application.pl
       # in your /etc/hosts file to try this out locally
       def extract_locale_from_tld
-        parsed_locale = request.host.split('.').last
         I18n.available_locales.include?(parsed_locale.to_sym) ? parsed_locale  : nil
       end      
+
+      def parsed_locale
+        WorldFlags.locale(parsed_domain)
+      end
+
+      def parsed_domain
+        request.host.split('.').last
+      end
     end
   end
 end

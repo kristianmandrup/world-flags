@@ -280,15 +280,16 @@ before_filter :set_locale
 And it should set the I18n.locale appropriately, trying `params[locale], browser, ip address` in succession, defaulting to `I18n.default_locale`.
 
 
-Under the covers, the `set_locale` filter uses the following method to get the locale:
+Under the covers, the `set_locale` filter uses the `locale_sources`method to get the locale:
 
 ```ruby
-def locales
-  [params[:locale], extract_locale_from_tld, browser_locale, ip_country_code, I18n.default_locale].downcase
+def locale_sources
+  [params[:locale], extract_locale_from_tld, 
+  browser_locale, ip_country_code, I18n.default_locale]
 end
 ```
 
-Note: You can override this method to set which the priority order for getting the user locale.
+Note: You can override this method in your controller to set the priority order for getting the user locale. Each code will be mapped to a locale code using the `WorldFlags#locale` mapping helper method.
 
 For each locale it will check if it is a valid locale. By default it will call `valid_locales` in the controller, which will first try `I18n.available_locales` and then fall-back to `WorldFlags#valid_locales`.
 You can override this behavior by defining you custom `valid_locales` method in the controller.
