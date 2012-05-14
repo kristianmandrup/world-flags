@@ -22,9 +22,11 @@ module WorldFlags
         auto_select_off!
 
         self.countries = nil
+        self.hashied_countries = nil
         self.countries_map = nil
 
         self.languages_map = nil
+        self.hashied_languages = nil
         self.languages = nil
       end
 

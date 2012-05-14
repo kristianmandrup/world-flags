@@ -1,7 +1,7 @@
 module WorldFlags
   module Util
     module Language
-      attr_writer :languages_map
+      attr_writer :languages_map, :hashied_languages
 
       def language_label code, locale
         language code, locale

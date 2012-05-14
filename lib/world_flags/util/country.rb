@@ -1,7 +1,7 @@
 module WorldFlags
   module Util
     module Country
-      attr_writer :countries_map
+      attr_writer :countries_map, :hashied_countries
       
       def country_label code, locale
         WorldFlags.country code, locale

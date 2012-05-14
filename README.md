@@ -22,44 +22,6 @@ There is also support for semi-transparent flags. This can be used to fade certa
 
 Simply add or remove the "semi" class for the flag to adjust the brightness level (fx for selection/mouse over).
 
-```javascript
-$("li.flag['data-cc'=dk).addClass('semi');
-$("li.flag['data-cc'=dk).removeClass('semi');
-```
-
-CSS configuration in `application.css` manifest.
-
-```css
-*/
- *= require_self
- *= require_tree .
- *= require flags/flags32
- *= require flags/flags62
-*/
-```
-
-## Alternative config
-
-Note that the ruby examples uses HAML syntax
-
-In the head of your view or layout file:
-
-```haml
-= stylesheet_link_tag 'flags16'
-```
-
-or using a helper
-
-```haml
-= use_flags(16)
-```
-
-Alternatively for the 32 width flags
-
-```haml
-= use_flags 32
-```
-
 ## Rendering
 
 Flags will be rendered in HTML as:
@@ -121,10 +83,10 @@ Note: The `&nbsp; is needed in order for the background (flag icon) to have some
 The :title and :content can also be set to a string which is then displayed
 
 ```haml
-= flag :ar, :title => 'Argentina is the best', :content => 'Argh!'
+= flag :ar, :title => 'Argentina country', :content => 'Argh!'
 ```
 
-To also get content rendered for the <li>
+To get content rendered for the <li>
 
 ```haml
 	= flags :ar, :br, :gb, :content => true
