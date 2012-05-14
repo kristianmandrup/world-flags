@@ -50,10 +50,21 @@ module WorldFlags
         end
       end
 
+      def hashied_languages
+        @hashied_languages ||= begin
+          case languages
+          when Hash
+            Hashie::Mash.new languages
+          else
+            languages
+          end
+        end
+      end
+
       def find_language_map loc
-        languages.respond_to?(loc) ? languages.send(loc) : languages.send(locale(loc))
+        hashied_languages.respond_to?(loc) ? hashied_languages.send(loc) : hashied_languages.send(locale(loc))
       rescue
-        languages.send(default_locale_used)
+        hashied_languages.send(default_locale_used)
       end
     end
   end

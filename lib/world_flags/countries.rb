@@ -1,5 +1,5 @@
 module WorldFlags
-	class Countries < Hashie::Mash
+	class Countries
 		def en
 			{
 				:ar => 'Argentina',

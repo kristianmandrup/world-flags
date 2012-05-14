@@ -1,5 +1,5 @@
 module WorldFlags
-	class Languages < Hashie::Mash
+	class Languages
 		def en
 			{
 				:ar => 'Spanish',

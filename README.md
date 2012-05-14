@@ -60,85 +60,6 @@ Alternatively for the 32 width flags
 = use_flags 32
 ```
 
-## Configuring localization
-
-You can run the Rails generator `world_flags:init` in order to create a basic initializer file for world flags with an overview of the different options available.
-
-You can setup WorldFlags to use a localization map for the labels of the flag icons
-
-```ruby
-WorldFlags.language_map = some_language_hash # fx loaded from a yaml file
-WorldFlags.countries = some_country_hash # fx loaded from a yaml file
-```
-
-Notice that it is a locale code pointing to a map of *ISO_3166-1_alpha-2* codes to labels for that locale.
-
-```ruby
-{
-	:en => {:gb => 'English', :dk => 'Danish'}
-	:da => {:gb => 'Engelsk', :dk => 'Dansk'}
-}
-```
-
-You can use [countries_and_languages](https://github.com/kristianmandrup/countries_and_languages) in order to generate the locale translation files needed for each locale. 
-
-## Locale mapping files
-
-The engine/gem includes English translation mapping files for countries and languages. They are not complete, so please edit them if you find errors or find your favorite country or language missing or misplaced somehow. 
-
-### Country mappings
-
-A country code to country name (in json format) can be found in `app/config/countries`. 
-
-```ruby
-def countries locale = :en
-  path = File.join(Rails.root, "app/config/countries/locale_countries.#{locale}.json")
-  JSON.parse File.read(path)
-end
-
-WorldFlags.countries = Hashie::Mash.new countries
-```
-
-PS: See the json specs for examples.
-
-### Languages mappings
-
-A country code to languages mappping file (also in json), can be found in `app/config/languages`.
-
-```ruby
-def languages locale = :en
-  path = File.join(Rails.root, "app/config/languages/locale_languages.#{locale}.json")
-  JSON.parse File.read(path)
-end
-
-WorldFlags.languages = Hashie::Mash.new languages
-```
-
-PS: See the json specs for examples.
-
-Another approach more suited to adding single files is the following. Note that both `countries` and `languages` are instances of classes that inherit from the `Hashie::Mash` class (hash access via method missing).
-
-```
-WorldFlags.countries.en = countries_en
-WorldFlags.languages.en = languages_en
-```
-
-You can set the available locales. By default they are the same as `I18n.available_locales`.
-
-```ruby
-WorldFlags.available_locales = [:en, :da]
-```
-
-## Locale to country code
-
-You can  customize the locale to flag code map, using:
-
-`WorldFlags.locale_flag_map = some_hash`
-
-The gem also comes with a json file at `config/locale_map/locale_to_country_code.json` that you can load in as a hash. WorldFlags will treat any locale of the form `xx_YY` as the YY downcased (yy).
-
-Please feel free to suggest or improve this locale/translation infrastructure!
-
 ## Rendering
 
 Flags will be rendered in HTML as:
@@ -211,17 +132,6 @@ To also get content rendered for the <li>
 
 Note: There is also a #flag_selected? helper, which is (and/or can be) used to determine if the flag to be drawn should have the "selected" class set)
 
-## Automatic flag selection
-
-The auto-select feature is by default turned off, but can be turned on/off using:
-
-```ruby
-WorldFlags.auto_select = true # or WorldFlags.auto_select!
-```
-
-With this feature turned on, WorlfFlags will attempt to set the `selected` CSS class on whatever flag drawn that matches the current `I18n.locale`code.
-If this doesn't work out for you, try to add a WorldFlags flag-to-locale code mapping for the locale.
-
 ## Using localization
 
 You can specify whether to look up labels for the flags for either language or country and for which locale to look up the labels (see Configuring localization)
@@ -233,129 +143,26 @@ Use danish (da) country labels
 	= flags :ar, :br, :gb, :country => :da
 ```
 
-Use danish (da) language labels
+Use language labels for current locale
 
 ```haml
 = flag_list 32 do
 	= flags :ar, :br, :gb, :language => I18n.locale
 ```
 
-Note: In the config folder there is now a json file with all the english ISO-3166-2 code translations ready for use. You can make similar locale files for other locales/languages.
+In the /config folder of this gem/engine there is a json file with all the english _ISO-3166-2_ code translations ready for use. You can make similar locale files for other locales/languages. You can use either of the following:
 
-h## Get client country code (browser and geo)
+* [countries_and_languages](https://github.com/grosser/countries_and_languages)
+* [i18n data](https://github.com/grosser/i18n_data)
+* [i18n gen](https://github.com/kristianmandrup/i18n-gen)
 
-A small helper module is provided that can be inserted into a Controller or wherever you see fit
+To generate i18n data for your particular locale(s).
 
-* ip_country_code
-* browser_locale
+## More configuration/usage tips
 
-```ruby
-class MainController < ApplicationController
-  def home
-    @country_code = WorldFlags::Helper::Geo.ip_country_code
-  end
-end
-```
+[Handling flag selection](https://github.com/kristianmandrup/world-flags/wiki/Handling-flag-selection)
 
-Alternatively you can include the modules directly into the controller:
-
-```ruby
-class MainController < ApplicationController
-	include WorldFlags::Helper::Geo
-	include WorldFlags::Helper::Browser
-
-  def home
-    @country_code = ip_country_code
-    @locale = browser_locale
-  end
-end
-```
-
-If you include the `WorldFlags::Helper::Locale` module, you can simply do:
-
-```ruby
-before_filter :set_locale
-```
-
-And it should set the I18n.locale appropriately, trying `params[locale], browser, ip address` in succession, defaulting to `I18n.default_locale`.
-
-
-Under the covers, the `set_locale` filter uses the `locale_sources`method to get the locale:
-
-```ruby
-def locale_sources
-  [params[:locale], extract_locale_from_tld, 
-  browser_locale, ip_country_code, I18n.default_locale]
-end
-```
-
-Note: You can override this method in your controller to set the priority order for getting the user locale. Each code will be mapped to a locale code using the `WorldFlags#locale` mapping helper method.
-
-For each locale it will check if it is a valid locale. By default it will call `valid_locales` in the controller, which will first try `I18n.available_locales` and then fall-back to `WorldFlags#valid_locales`.
-You can override this behavior by defining you custom `valid_locales` method in the controller.
-
-For convenience you can include `WorldFlags::Helper::All` to include all these helper modules.
-
-Note that if you include the `WorldFlags::Helper::Geo you need the `httparty` gem as well.
-
-Example:
-
-```ruby
-class MainController < ApplicationController
-	include WorldFlags::Helper::All
-
-	before_filter :set_locale	
-end
-```
-
-You can define the available locales for your app in your `application.rb` file:
-
-```ruby
-class Application < Rails::Application
-  # ...
-  config.i18n.available_locales = [:da, :sv, :no]
-``
-
-The perhaps sync i18n `I18n.available_locales = MyCool::Application.i18n.available_locales`
-
-Note: This approach in turn works well with the `i18n-docs` gem ;)
-
-## Post flag selection
-
-Here an example of setting up a flag click handler in order to call the server with the country/locale/language selection of the flag.
-
-```javascript
-$("li.flag").click(function() {
-	country = $(this).data('locale');
-
-	// full page reload
-	// window.location.href = "/locale/select/" + country;
-
-	// window.location.href = window.location.href + '?locale=' + country;
-
-	// async post
-	$.post("/locale/select", { "country": country }, function(data) {
-		console.log(data);
-	});	
-});
-```
-
-This gem now comes with a simple javascript object `WorldFlagsUrlHelper` baked in. To use it, add the following to your ``application.js manifest.
-
-```
-//= require world_flags/url_helper
-```
-
-And use it something like this:
-
-```javascript
-$("li.flag").click(function() {
-	country = $(this).data('locale');
-
-	// full page reload with locale=xx param added to url :)
-	WorldFlagsUrlHelper.reloadWithLocaleParam('da');
-});
-```
+[Configuration](https://github.com/kristianmandrup/world-flags/wiki/Configuration)
 
 ## TODO for version 1.0
 

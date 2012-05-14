@@ -3,6 +3,19 @@ module WorldFlags
     module Config
       attr_accessor :auto_select, :raise_error
       attr_accessor :default_code, :default_locale
+      attr_writer   :locale_source_priority
+
+      def locale_source_priority
+        @locale_source_priority ||= default_locale_source_priority
+      end
+
+      def default_locale_source_priority
+        supported_locale_source_priorities
+      end
+
+      def supported_locale_source_priorities
+        [:param, :domain, :browser, :ip, :default]
+      end
 
       def reset!
         raise_error_off!

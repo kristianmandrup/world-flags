@@ -6,10 +6,11 @@ module WorldFlags
       end  
 
       def valid_locales
+        return WorldFlags.available_locales if WorldFlags.available_locales.present?
         if I18n.respond_to?(:available_locales) && I18n.available_locales.present?
           I18n.available_locales
         else
-          WorldFlags.valid_locales
+          raise "You must define a list of available locales for use with WorldFlags either in WorldFlags.available_locales or I18n.available_locales"
         end
       end
 
@@ -19,7 +20,29 @@ module WorldFlags
       end
 
       def locale_sources
-        [params[:locale], extract_locale_from_tld, browser_locale, ip_country_code, I18n.default_locale]
+        locale_source_priority.inject([]) do |res, name|
+          res << locale_priority(name)
+          res
+        end
+      end
+
+      def locale_priority name
+        case name.to_sym
+        when :param
+          params[:locale]
+        when :domain
+          extract_locale_from_tld # http://en.wikipedia.org/wiki/List_of_Internet_top-level_domains
+        when :browser
+          browser_locale # http://www.metamodpro.com/browser-language-codes
+        when :ip
+          ip_country_code
+        when :default
+          I18n.default_locale
+        end
+      end
+
+      def locale_source_priority
+        WorldFlags.locale_source_priority
       end
  
       # Get locale from top-level domain or return nil if such locale is not available
@@ -33,7 +56,7 @@ module WorldFlags
       end      
 
       def parsed_locale
-        WorldFlags.locale(parsed_domain)
+        WorldFlags.domain_to_locale(parsed_domain)
       end
 
       def parsed_domain

@@ -7,10 +7,6 @@ module WorldFlags
         WorldFlags.country code, locale
       end
 
-      def countries
-        @countries ||= Countries.new
-      end
-
       def country code = :us, locale = :en
         locale ||= default_locale_used
         locale = WorldFlags.locale(locale).to_sym
@@ -32,6 +28,10 @@ module WorldFlags
         @countries = countries
       end
 
+      def countries
+        @countries ||= Countries.new
+      end
+
       def countries_map
         @countries_map ||= begin 
           available_locales.inject({}) do |res, loc|
@@ -41,10 +41,21 @@ module WorldFlags
         end
       end   
 
-      def find_country_map loc
-        countries.respond_to?(loc) ? countries.send(loc) : languages.send(locale(loc))
+      def hashied_countries
+        @hashied_countries ||= begin
+          case countries
+          when Hash
+            Hashie::Mash.new countries
+          else
+            countries
+          end
+        end
+      end
+
+      def find_country_map loc        
+        hashied_countries.respond_to?(loc) ? hashied_countries.send(loc) : hashied_countries.send(locale loc)
       rescue
-        countries.send(default_locale_used)
+        hashied_countries.send(default_locale_used)
       end
     end
   end

@@ -14,7 +14,7 @@ describe WorldFlags::Helper::View do
     I18n.locale = :en
     WorldFlags.available_locales = [:da, :sv, :nb, :en]
     WorldFlags.reset!
-    WorldFlags.countries = Hashie::Mash.new countries
+    WorldFlags.countries = countries
     WorldFlags.raise_error!
   end
 

@@ -29,7 +29,22 @@ module WorldFlags
 		def locale code = :us
 			flag_locale_map[code.to_sym] || code
 		end
-		
+
+		# avoid uk being translated to ukraine for domain names!		
+		def domain_to_locale code
+			domain_locale_map[code.to_sym] || flag_locale_map[code.to_sym] || code
+		end
+
+		def domain_locale_map
+			{ 
+				:uk => "en_GB",
+				:tp => "tl",
+				:su => 'ru',
+				:an => 'nl'
+  		}
+  	end
+
+
 		# override using fx 'locale_to_country_code.json' file
 		def locale_flag_map
 			@locale_flag_map ||= keys_to_sym(locale_flag_hash) 
