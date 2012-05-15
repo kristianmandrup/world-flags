@@ -1,6 +1,7 @@
 source :rubygems
 
-gem 'hashie'
+gem 'hashie', '~> 1.2'
+gem 'i18n',   '~> 0.6'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
