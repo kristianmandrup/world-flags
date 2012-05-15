@@ -1,6 +1,11 @@
-# Country or language selection with Flag icons
+# World Flags
 
-This gem can be used with Rails 3. It includes css files for size 16 and 32 pixels and have all the worlds' flags. See http://spritegen.website-performance.org/
+This engine/gem can be used with Rails 3+. WorldFlags includes css files for flags of the following pixel sizes:
+* 16 
+* 32
+* 64 
+
+The sprites contains all the main country flags in the world.
 
 ## Configuration
 
@@ -16,7 +21,7 @@ In you asset `application.css` manifest file:
 */
 ```
 
-The `flags/basic` stylesheet sets up a basic css for use with borders around the 32 and 64 pixel flag images (to mark selected language). Use this css as inspiration and customize by overriding styles as needed.
+The `flags/basic` stylesheet sets up a basic css for use with borders around the flag images (to mark selected language). Use this css as inspiration and customize by overriding styles as needed.
 
 There is also support for semi-transparent flags. This can be used to fade certain flags while having the selected flag (or hovered over flag) in full brightness.
 
@@ -28,9 +33,8 @@ Flags will be rendered in HTML as:
 
 ```html
 <pre>
-<ul class="f32">
-  <li class="flag ar" data-cc="ar" data-country="Argentina">Argentina</li>
-  <li class="flag gb" data-cc="gb" data-country="England">England</li>
+  <ul class="f32">
+  	<li class="flag ar selected" data-cc="ar" data-country_name="Argentina" data-language_name="Spanish" data-locale="ar">&nbsp;</li>
 ...
 </ul>
 </pre>
