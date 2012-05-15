@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.4.4"
+  s.version = "0.4.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -42,6 +42,7 @@ Gem::Specification.new do |s|
     "lib/world_flags/helper/view/util.rb",
     "lib/world_flags/helpers.rb",
     "lib/world_flags/languages.rb",
+    "lib/world_flags/rack_locale.rb",
     "lib/world_flags/rails/engine.rb",
     "lib/world_flags/util.rb",
     "lib/world_flags/util/config.rb",
@@ -92,14 +93,16 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<hashie>, [">= 0"])
+      s.add_runtime_dependency(%q<hashie>, ["~> 1.2"])
+      s.add_runtime_dependency(%q<i18n>, ["~> 0.6"])
       s.add_development_dependency(%q<rspec>, [">= 2.8.0"])
       s.add_development_dependency(%q<rdoc>, [">= 3.12"])
       s.add_development_dependency(%q<bundler>, [">= 1.0.0"])
       s.add_development_dependency(%q<jeweler>, [">= 1.8.3"])
       s.add_development_dependency(%q<simplecov>, [">= 0.5"])
     else
-      s.add_dependency(%q<hashie>, [">= 0"])
+      s.add_dependency(%q<hashie>, ["~> 1.2"])
+      s.add_dependency(%q<i18n>, ["~> 0.6"])
       s.add_dependency(%q<rspec>, [">= 2.8.0"])
       s.add_dependency(%q<rdoc>, [">= 3.12"])
       s.add_dependency(%q<bundler>, [">= 1.0.0"])
@@ -107,7 +110,8 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<simplecov>, [">= 0.5"])
     end
   else
-    s.add_dependency(%q<hashie>, [">= 0"])
+    s.add_dependency(%q<hashie>, ["~> 1.2"])
+    s.add_dependency(%q<i18n>, ["~> 0.6"])
     s.add_dependency(%q<rspec>, [">= 2.8.0"])
     s.add_dependency(%q<rdoc>, [">= 3.12"])
     s.add_dependency(%q<bundler>, [">= 1.0.0"])
