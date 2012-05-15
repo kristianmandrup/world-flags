@@ -107,8 +107,9 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (>= 1.0.0)
-  hashie
+  hashie (~> 1.2)
   httparty
+  i18n (~> 0.6)
   jeweler (>= 1.8.3)
   rails (>= 3.1)
   rdoc (>= 3.12)
