@@ -36,7 +36,7 @@ Flags will be rendered in HTML as:
 </pre>
 ```
 
-The countries corresponding to the codes can be found at "http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2":http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+The countries corresponding to the codes can be found at [ISO 3166-1 alpha-2](http://en.wikipedia.org/wiki/ISO_3166-1_alpha-2)
 
 ## Use
 
@@ -120,11 +120,13 @@ In the /config folder of this gem/engine there is a json file with all the engli
 
 To generate i18n data for your particular locale(s).
 
-## More configuration/usage tips
+## Configuration and usage tips
 
-[Handling flag selection](https://github.com/kristianmandrup/world-flags/wiki/Handling-flag-selection)
+See the [wiki](https://github.com/kristianmandrup/world-flags/wiki/)
 
-[Configuration](https://github.com/kristianmandrup/world-flags/wiki/Configuration)
+* [Configuration](https://github.com/kristianmandrup/world-flags/wiki/Configuration)
+* [Handling flag selection](https://github.com/kristianmandrup/world-flags/wiki/Handling-flag-selection)
+
 
 ## TODO for version 1.0
 
