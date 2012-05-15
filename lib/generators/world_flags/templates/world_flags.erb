@@ -1,12 +1,13 @@
-WorldFlags.auto_select! # = false to disable
+WorldFlags.config do |c|
+  c.auto_select!
 
-# cc_en = 'app/config/country_codes/iso-3166-2.en.json'
-# cc_path = File.join(Rails.root, cc_en)
-# country_codes_en = JSON.parse File.read(cc_path)
+  # c.available_locales = [:en, :da]
+  # c.locale_source_priority = [:param, :domain, :browser, :ip]
 
-# WorldFlags.languages = some_language_hash # fx loaded from a yaml file
-# WorldFlags.countries = some_country_hash # fx loaded from a yaml file
+  # c.languages = languages_hash # fx loaded from a yaml file
+  # c.countries = countries_hash # fx loaded from a yaml file
+  # c.locale_flag_map = hash
+end
+  
 
-# WorldFlags.active_locales = [:en, :da]
 
-# WorldFlags.locale_flag_map = some hash

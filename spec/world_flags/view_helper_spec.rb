@@ -5,11 +5,14 @@ describe WorldFlags::Helper::View do
           WorldFlags::Helper::View
 
   before do
-    WorldFlags.auto_select!
     I18n.locale = 'ar'
-    WorldFlags.available_locales = [:da, :sv, :nb, :en]
-    WorldFlags.reset!
-    WorldFlags.raise_error!
+
+    WorldFlags.config do |c|
+      c.auto_select!    
+      c.available_locales = [:da, :sv, :nb, :en]
+      c.reset!
+      c.raise_error!
+    end
   end
 
   it 'should translate flag code to locale' do

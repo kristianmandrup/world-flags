@@ -15,6 +15,10 @@ module WorldFlags
 		attr_writer :active_locales
 		attr_writer :locale_flag_map		
 
+		def config &block
+  		(block_given? && block.arity == 1) ? yield(self) : instance_eval(&block)
+		end
+
 		def label code = :us, options = {:language => :en}
 			locale = extract_locale!(options) || default_locale_used || :en
 			options[:country] ? country_label(code, locale) : language_label(code, locale)
