@@ -14,6 +14,6 @@ group :development do
 end
 
 group :test do
-	gem 'httparty'
+	gem 'geoip'
 	gem 'rails', '>= 3.1'
 end
