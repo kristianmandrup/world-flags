@@ -35,7 +35,7 @@ module WorldFlags
         when :browser
           browser_locale # http://www.metamodpro.com/browser-language-codes
         when :ip
-          ip_country_code browser_ip
+          ip_country_code(browser_ip)
         when :default
           I18n.default_locale
         end
