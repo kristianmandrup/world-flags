@@ -3,10 +3,10 @@ module WorldFlags
     module Config
       attr_accessor :auto_select, :raise_error
       attr_accessor :default_code, :default_locale
-      attr_writer   :locale_source_priority, :geo_ip_location, :localhost_list
+      attr_writer   :locale_source_priority, :geo_ip_db_path, :localhost_list
 
-      def geo_ip_location
-        @geo_ip_location ||= "#{Rails.root}/db/GeoIP.dat"
+      def geo_ip_db_path
+        @geo_ip_db_path ||= "#{Rails.root}/db/GeoIP.dat"
       end
 
       def localhost_list

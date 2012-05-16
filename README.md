@@ -135,10 +135,18 @@ See the [wiki](https://github.com/kristianmandrup/world-flags/wiki/)
 
 Include the 'geoip' gem if you want to detect locale based on browser IP location.
 
-[GeoIP counry lite](http://www.maxmind.com/app/geolitecountry)
+[GeoIP country lite](http://www.maxmind.com/app/geolitecountry)
 [GeoIP](http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz)
 
-Extract and put latest `GeoIP.dat` file in `db/GeoIP.dat` of your Rails app. Alternatively set location via `WorldFlags.geo_ip_location = path`. Also set `WorldFlags.localhost_list` if you have localhosts other than the default `127.0.0.1`.
+Extract and put latest `GeoIP.dat` file in `db/GeoIP.dat` of your Rails app. Alternatively set location via `WorldFlags.geo_ip_db_path = path`. Also set `WorldFlags.localhost_list` if you have localhosts other than the default `127.0.0.1`.
+
+You can override the default ip passed to the Geo module by overriding the `browser_ip` method in your controller. Here the default implementation is shown:
+
+```ruby
+def browser_ip
+  request.remote_ip
+end
+```
 
 ## TODO for version 1.0
 

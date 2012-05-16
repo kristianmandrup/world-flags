@@ -35,10 +35,14 @@ module WorldFlags
         when :browser
           browser_locale # http://www.metamodpro.com/browser-language-codes
         when :ip
-          ip_country_code
+          ip_country_code browser_ip
         when :default
           I18n.default_locale
         end
+      end
+
+      def browser_ip
+        request.remote_ip
       end
 
       def locale_source_priority
