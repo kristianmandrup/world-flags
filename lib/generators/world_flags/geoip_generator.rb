@@ -9,18 +9,23 @@ module WorldFlags
     class GeoipGenerator < ::Rails::Generators::Base
       desc "Copy IP database - GeoIP.dat"
 
-      class_option :local, :type => :boolean, :default => false, :desc => 'Use local cached GeoIP or retrieve latest from maxmind.com'
+      class_option :local, :type => :boolean, :default => true, :desc => 'Use local cached GeoIP or retrieve latest from maxmind.com'
 
       source_root File.dirname(__FILE__)
 
       def main_flow
-        options[:local] ? copy_local : download_latest
+        puts "local: #{local?}"
+        local? ? copy_local : download_latest
       end
 
       protected
 
+      def local?
+        !(options[:local] == false)
+      end
+
       def copy_local
-        copy "GeoIP.dat", target_location
+        copy_file "GeoIP.dat", "db/GeoIP.dat"
       end
 
       def download_latest 
@@ -30,8 +35,6 @@ module WorldFlags
         # resp = resource.get  # Will only follow the redirect if the new location is example.com
 
         puts "get: #{file_name} from #{zip_adr}"
-
-
 
         agent = Mechanize.new  { |agent| agent.user_agent_alias = 'Mac Safari'}
         agent.robots = false
@@ -61,12 +64,12 @@ module WorldFlags
         FileUtils.rm(file_name) # if options[:cleanup]
       end
 
-      def options
+      def agent_options
         {"User-Agent" => "Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9.1.9) Gecko/20100402 Ubuntu/9.10 (karmic) Firefox/3.5.9", "From" => "foo@bar.com", "Referer" => "http://www.foo.bar/"}
       end
 
       def target_location
-        Rails.root.join 'db', 'GeoIP.dat'
+        ::Rails.root.join 'db', 'GeoIP.dat'
       end
 
       def zip_adr
