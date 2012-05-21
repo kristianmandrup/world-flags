@@ -6,7 +6,7 @@ module WorldFlags
       attr_writer   :locale_source_priority, :geo_ip_db_path, :localhost_list
 
       def geo_ip_db_path
-        @geo_ip_db_path ||= "#{Rails.root}/db/GeoIP.dat"
+        @geo_ip_db_path ||= ::Rails.root.join 'db', 'GeoIP.dat'
       end
 
       def localhost_list

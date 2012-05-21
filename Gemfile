@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'curb',   '~> 0.8'
 gem 'hashie', '~> 1.2'
 gem 'i18n',   '~> 0.6'
 

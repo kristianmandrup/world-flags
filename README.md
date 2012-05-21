@@ -142,6 +142,14 @@ Extract and put latest `GeoIP.dat` file in `db/GeoIP.dat` of your Rails app. Alt
 
 The _world-flags_ engine comes pre-packaged with a recent version of `GeoIP.dat` in the `db` folder of the engine itself.
 
+### GeoIP generator
+
+Copy WorldFlags GeoIP.dat to Rails app '/db/GeoIP.dat'
+
+TODO: Should optimally fetch the one from maxmind.com
+
+`rails g world_flags:geoip`
+
 ### Localhosts filtering
 
 Also set `WorldFlags.localhost_list` if you have localhosts other than the default `127.0.0.1`.
@@ -160,7 +168,7 @@ Code extract of the locale source logic for browser IP country code detection:
 
 ```ruby
 when :ip
-  ip_country_code(browser_ip)
+  country_code_from_ip browser_ip
 ```
 
 ## TODO for version 1.0
