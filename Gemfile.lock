@@ -141,5 +141,5 @@ DEPENDENCIES
   rdoc (>= 3.12)
   resourceful (~> 1.0.1)
   rspec (>= 2.8.0)
-  rubyzip (~> 0.9.8)
+  rubyzip (>= 0.9.7)
   simplecov (>= 0.5)
