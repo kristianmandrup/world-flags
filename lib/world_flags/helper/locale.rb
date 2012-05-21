@@ -35,10 +35,16 @@ module WorldFlags
         when :browser
           browser_locale # http://www.metamodpro.com/browser-language-codes
         when :ip
-          country_code_from_ip(browser_ip)
+          get_country_by_ip          
         when :default
           I18n.default_locale
         end
+      end
+
+      def get_country_by_ip
+        country_code_from_ip browser_ip
+      rescue WorldFlags::GeoIPError
+        I18n.default_locale
       end
 
       def browser_ip

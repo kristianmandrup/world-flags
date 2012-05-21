@@ -1,16 +1,28 @@
 module WorldFlags
   module Util
     module Config
-      attr_accessor :auto_select, :raise_error
+      attr_accessor :auto_select, :raise_error, :debug
       attr_accessor :default_code, :default_locale
       attr_writer   :locale_source_priority, :geo_ip_db_path, :localhost_list
+
+      def debug?
+        @debug
+      end
+
+      def debug_on!
+        @debug = true
+      end
+
+      def debug_off!
+        @debug = false
+      end
 
       def geo_ip_db_path
         @geo_ip_db_path ||= ::Rails.root.join 'db', 'GeoIP.dat'
       end
 
       def localhost_list
-        @localhost_list ||= ["127.0.0.1"]
+        @localhost_list ||= ["127.0.0.1", "localhost", "0.0.0.0"]
       end
 
       def locale_source_priority
