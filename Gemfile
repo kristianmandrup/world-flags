@@ -1,8 +1,10 @@
 source :rubygems
 
-gem 'curb',   '~> 0.8'
-gem 'hashie', '~> 1.2'
-gem 'i18n',   '~> 0.6'
+gem "mechanize"
+gem "resourceful",  "~> 1.0.1"
+gem "rubyzip",      "~> 0.9.8"
+gem 'hashie',       '~> 1.2'
+gem 'i18n',         '~> 0.6'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
