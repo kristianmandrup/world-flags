@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.4.9"
+  s.version = "0.5.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = "2012-05-21"
+  s.date = "2012-05-24"
   s.description = "Use world flag icons in your Rails app"
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
@@ -47,6 +47,7 @@ Gem::Specification.new do |s|
     "lib/world_flags/languages.rb",
     "lib/world_flags/rack_locale.rb",
     "lib/world_flags/rails/engine.rb",
+    "lib/world_flags/tools/resize_css.rb",
     "lib/world_flags/util.rb",
     "lib/world_flags/util/config.rb",
     "lib/world_flags/util/country.rb",
@@ -68,8 +69,12 @@ Gem::Specification.new do |s|
     "spec/world_flags/view_helper_spec.rb",
     "vendor/assets/images/flags/flags16.png",
     "vendor/assets/images/flags/flags16_semi.png",
+    "vendor/assets/images/flags/flags24.png",
+    "vendor/assets/images/flags/flags24_semi.png",
     "vendor/assets/images/flags/flags32.png",
     "vendor/assets/images/flags/flags32_semi.png",
+    "vendor/assets/images/flags/flags48.png",
+    "vendor/assets/images/flags/flags48_semi.png",
     "vendor/assets/images/flags/flags64.png",
     "vendor/assets/images/flags/flags64_semi.png",
     "vendor/assets/javascripts/world_flags/url_helper.js",
@@ -79,10 +84,18 @@ Gem::Specification.new do |s|
     "vendor/assets/stylesheets/flags/flags16-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags16.css.erb",
     "vendor/assets/stylesheets/flags/flags16.css.scss.erb",
+    "vendor/assets/stylesheets/flags/flags24-semi.css.erb",
+    "vendor/assets/stylesheets/flags/flags24-semi.css.scss.erb",
+    "vendor/assets/stylesheets/flags/flags24.css.erb",
+    "vendor/assets/stylesheets/flags/flags24.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags32-semi.css.erb",
     "vendor/assets/stylesheets/flags/flags32-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags32.css.erb",
     "vendor/assets/stylesheets/flags/flags32.css.scss.erb",
+    "vendor/assets/stylesheets/flags/flags48-semi.css.erb",
+    "vendor/assets/stylesheets/flags/flags48-semi.css.scss.erb",
+    "vendor/assets/stylesheets/flags/flags48.css.erb",
+    "vendor/assets/stylesheets/flags/flags48.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags64-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags64.css.scss.erb",
     "world-flags.gemspec"
