@@ -4,6 +4,8 @@ describe WorldFlags::Helper::View do
   include ControllerTestHelpers,
           WorldFlags::Helper::View
 
+  let(:default_size) { 24 }
+
   before do
     I18n.locale = 'ar'
 
@@ -22,16 +24,16 @@ describe WorldFlags::Helper::View do
   it "should be empty, with an empty block" do
     output = flags_list do
     end
-    output.should == "<ul class=\"f16\"></ul>"
+    output.should == "<ul class=\"f#{default_size}\"></ul>"
   end
 
   it "should work with alias :flag_list" do
     output = flag_list do
     end
-    output.should == "<ul class=\"f16\"></ul>"
+    output.should == "<ul class=\"f#{default_size}\"></ul>"
   end
 
-  it "should set size to 16 or 32" do
+  it "should raise error when unsupported flag size" do
     lambda do flags_list(8) { }    	
     end.should raise_error
   end
