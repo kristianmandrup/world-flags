@@ -4,10 +4,10 @@ module WorldFlags
 	module Helper
 		module View
 			def self.flag_sizes
-				[16, 32, 64]
+				[16, 24, 32, 48, 64]
 			end
 
-			def flags_list size = 16, &block
+			def flags_list size = 24, &block
 				raise "Missing block" unless block_given?
 				unless WorldFlags::Helper::View.flag_sizes.include?(size.to_i)
 					raise "Supported sizes are only #{WorldFlags::Helper::View.flag_sizes}" 
@@ -51,7 +51,7 @@ module WorldFlags
 				flag code, name, options.merge(:title => true)
 			end
 
-			def use_flags size = 16
+			def use_flags size = 24
 				stylesheet_link_tag "flags/flags#{size}"
 			end
 		end

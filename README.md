@@ -1,11 +1,34 @@
 # World Flags
 
 This engine/gem can be used with Rails 3+. WorldFlags includes css files for flags of the following pixel sizes:
-* 16 
+
+* 16
+* 24 
 * 32
+* 48
 * 64 
 
 The sprites contains all the main country flags in the world.
+
+## Customizing Flag sprite size
+
+*Resize images:*
+
+Use ImageMagick to resize, using 32px version as base
+
+`convert flags32.png -resize 75% flags24.png`
+
+`convert flags32_semi.png -resize 75% flags24_semi.png`
+
+*Generate adsjusted css files:*
+
+The CSS files must have positioning adjusted to fit the new sprites:
+Use the resizing tool in `lib/world-flags/tools/resize-css.rb`
+Edit the last part where ResizeCss is initialized
+
+`resizer = ResizeCss.new 32, 24`
+
+The last argument (here 24) is the flag size used for calculating new positioning in the css files generated.
 
 ## Configuration
 
@@ -44,7 +67,7 @@ The countries corresponding to the codes can be found at [ISO 3166-1 alpha-2](ht
 
 ## Use
 
-WorldFlags supports flag sizes in 16, 32 and 64 pixels (size).
+WorldFlags supports flag sizes in 16, 24, 32, 48 and 64 pixels (size).
 
 You can also use built in helper methods:
 
