@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.5.0"
+  s.version = "0.5.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = "2012-05-24"
+  s.date = "2012-06-23"
   s.description = "Use world flag icons in your Rails app"
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
     "lib/generators/world_flags/GeoIP.dat",
     "lib/generators/world_flags/geoip_generator.rb",
     "lib/generators/world_flags/init_generator.rb",
+    "lib/generators/world_flags/publicize_generator.rb",
     "lib/generators/world_flags/templates/world_flags.erb",
     "lib/world-flags.rb",
     "lib/world_flags/core_ext.rb",
