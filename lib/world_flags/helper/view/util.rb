@@ -33,12 +33,12 @@ module WorldFlags
 					semi = (selected.blank? ? ' semi' : '') if options[:with_semi]
 					xclass = options[:class] ? " #{options[:class]}" : ''
 
-					if WorldFlags.country_enabled?
+					if WorldFlags.country_name_enabled?
 						country_name = WorldFlags.country(code, locale)						
 					end
 					country_option = country_name ? {:'data-country_name' => country_name} : {}
 
-					if WorldFlags.language_enabled?
+					if WorldFlags.language_name_enabled?
 						language_name = WorldFlags.language(code, locale)
 					end
 					language_option = language_name ? {:'data-language_name' => language_name} : {}
