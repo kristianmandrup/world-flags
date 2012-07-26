@@ -14,7 +14,6 @@ module WorldFlags
       source_root File.dirname(__FILE__)
 
       def main_flow
-        puts "local: #{local?}"
         local? ? copy_local : download_latest
       end
 
@@ -34,7 +33,7 @@ module WorldFlags
         # # resource.on_redirect { |req, resp| resp.header['Location'] =~ /example.com/ }
         # resp = resource.get  # Will only follow the redirect if the new location is example.com
 
-        puts "get: #{file_name} from #{zip_adr}"
+        # puts "get: #{file_name} from #{zip_adr}"
 
         agent = Mechanize.new  { |agent| agent.user_agent_alias = 'Mac Safari'}
         agent.robots = false
@@ -48,10 +47,10 @@ module WorldFlags
         #   zip_file.write(resp.body)
         # end
         #zf is an instance of class Tempfile
-        puts "zip path: #{zf.path}"
+        # puts "zip path: #{zf.path}"
 
         Zip::ZipFile.open(file_name) do |zipfile|
-          puts "zipfile: #{zipfile}"
+          # puts "zipfile: #{zipfile}"
           #zipfile.class is Zip::ZipFile
           zipfile.each do |e|
             #e is an instance of Zip::ZipEntry

@@ -17,6 +17,14 @@ module WorldFlags
 
 		attr_writer :flag_tag, :flag_list_tag, :flag_text
 
+    def country_enabled?
+    	WorldFlags::Util::Country.enabled?
+    end
+
+    def language_enabled?
+    	WorldFlags::Util::Language.enabled?
+    end
+
 		def flag_text
  			@flag_text ||= '' #' &nbsp;'
  		end

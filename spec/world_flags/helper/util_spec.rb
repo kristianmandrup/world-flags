@@ -33,4 +33,18 @@ describe WorldFlags::Helper::View do
       output.should == "<div class=\"f32 flags\"><span class=\"flag ar\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\"></span></div>"
     end
   end
+
+  describe 'disable country and language names' do
+    before :each do
+      WorldFlags::Util::Country.disable!
+      WorldFlags::Util::Language.disable!
+    end
+
+    it "should list flags using customized tags and text" do
+      output = flags_list 32 do
+        flags [:ar]
+      end
+      output.should == "<div class=\"f32 flags\"><span class=\"flag ar\" data-cc=\"ar\" data-locale=\"ar\"></span></div>"
+    end
+  end
 end

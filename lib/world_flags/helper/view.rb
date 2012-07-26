@@ -48,7 +48,7 @@ module WorldFlags
 				label = WorldFlags::Helper::View::Util.label_for options
 				title = WorldFlags::Helper::View::Util.title_for name, options
 
-				content_tag WorldFlags.flag_tag,  label.html_safe, WorldFlags::Helper::View::Util.flag_options(code, title, name, options)
+				content_tag WorldFlags.flag_tag, label.html_safe, WorldFlags::Helper::View::Util.flag_options(code, title, name, options)
 			end
 
 			def flag_title code, *args

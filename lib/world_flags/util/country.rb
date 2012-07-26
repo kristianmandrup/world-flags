@@ -1,8 +1,12 @@
+require 'world_flags/util/enabler'
+
 module WorldFlags
   module Util
     module Country
       attr_writer :countries_map, :hashied_countries
       
+      extend WorldFlags::Util::Enabler
+
       def country_label code, locale
         WorldFlags.country code, locale
       end

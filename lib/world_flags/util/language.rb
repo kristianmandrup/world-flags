@@ -1,7 +1,11 @@
+require 'world_flags/util/enabler'
+
 module WorldFlags
   module Util
     module Language
       attr_writer :languages_map, :hashied_languages
+
+      extend WorldFlags::Util::Enabler
 
       def language_label code, locale
         language code, locale

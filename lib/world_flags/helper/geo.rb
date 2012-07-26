@@ -7,7 +7,7 @@ module WorldFlags
         ip ||= request.remote_ip
         raise WorldFlags::GeoIPError, "IP address #{ip} is a localhost address" if local_ip?(ip)
         
-        puts "find country code for ip: #{ip}" if debug?
+        # puts "find country code for ip: #{ip}" if debug?
 
         @geoip ||= ::GeoIP.new WorldFlags.geo_ip_db_path
         country = @geoip.country(ip)

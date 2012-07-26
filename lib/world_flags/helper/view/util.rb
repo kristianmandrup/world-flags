@@ -29,16 +29,23 @@ module WorldFlags
 					extra_options = title ? {:title => title } : {}			
 					selected = flag_selected?(code, options) ? ' selected' : ''
 
-					language_name = WorldFlags.language(code, locale)
-					country_name = WorldFlags.country(code, locale)
-
 					# add semi class if not selected
 					semi = (selected.blank? ? ' semi' : '') if options[:with_semi]
 					xclass = options[:class] ? " #{options[:class]}" : ''
 
+					if WorldFlags.country_enabled?
+						country_name = WorldFlags.country(code, locale)						
+					end
+					country_option = country_name ? {:'data-country_name' => country_name} : {}
+
+					if WorldFlags.language_enabled?
+						language_name = WorldFlags.language(code, locale)
+					end
+					language_option = language_name ? {:'data-language_name' => language_name} : {}
+
 					flag_locale = WorldFlags.locale(code)
 
-					{:class => "flag #{code}#{selected}#{semi}#{xclass}", :'data-country_name' => country_name, :'data-language_name' => language_name, :'data-cc' => code, :'data-locale' => flag_locale}.merge(options[:html] || {}).merge(extra_options)
+					{:class => "flag #{code}#{selected}#{semi}#{xclass}", :'data-cc' => code, :'data-locale' => flag_locale}.merge(options[:html] || {}).merge(extra_options).merge(country_option).merge(language_option)
 				end
 
 				def self.flag_selected? code, options = {}
