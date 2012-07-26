@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.5.1"
+  s.version = "0.6.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = "2012-06-23"
+  s.date = "2012-07-26"
   s.description = "Use world flag icons in your Rails app"
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
@@ -61,13 +61,15 @@ Gem::Specification.new do |s|
     "sandbox/official_languages.txt",
     "spec/data/GeoIP.dat",
     "spec/spec_helper.rb",
+    "spec/world_flags/config_spec.rb",
     "spec/world_flags/country_spec.rb",
-    "spec/world_flags/helper/locale_helper_spec.rb",
+    "spec/world_flags/helper/locale_spec.rb",
+    "spec/world_flags/helper/util_spec.rb",
+    "spec/world_flags/helper/view_spec.rb",
     "spec/world_flags/json/json_countries_spec.rb",
     "spec/world_flags/json/json_languages_spec.rb",
     "spec/world_flags/json/locale_flag_spec.rb",
     "spec/world_flags/language_spec.rb",
-    "spec/world_flags/view_helper_spec.rb",
     "vendor/assets/images/flags/flags16.png",
     "vendor/assets/images/flags/flags16_semi.png",
     "vendor/assets/images/flags/flags24.png",
