@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.6.0"
+  s.version = "0.6.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
@@ -53,6 +53,7 @@ Gem::Specification.new do |s|
     "lib/world_flags/util/config.rb",
     "lib/world_flags/util/country.rb",
     "lib/world_flags/util/language.rb",
+    "lib/world_flags/util/name_enabler.rb",
     "sandbox/country_codes_table.html",
     "sandbox/extract_codes.rb",
     "sandbox/languages_country_extract.rb",
