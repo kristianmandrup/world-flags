@@ -36,8 +36,8 @@ describe WorldFlags::Helper::View do
 
   describe 'disable country and language names' do
     before :each do
-      WorldFlags::Util::Country.disable!
-      WorldFlags::Util::Language.disable!
+      WorldFlags.country_name_disable!
+      WorldFlags.language_name_disable!
     end
 
     it "should list flags using customized tags and text" do

@@ -135,6 +135,15 @@ To get content rendered for the <li>
 
 Note: There is also a #flag_selected? helper, which is (and/or can be) used to determine if the flag to be drawn should have the "selected" class set)
 
+## Configuration
+
+To disable use of country- and language name data attributes in output:
+
+```ruby
+WorldFlags.country_name_disable!
+WorldFlags.language_name_disable!
+```
+
 ## Customizing output
 
 You can customize the output by the flag view helper methods:

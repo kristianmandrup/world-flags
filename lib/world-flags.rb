@@ -17,13 +17,30 @@ module WorldFlags
 
 		attr_writer :flag_tag, :flag_list_tag, :flag_text
 
-    def country_enabled?
-    	WorldFlags::Util::Country.enabled?
+    def country_name_enabled?
+    	WorldFlags::Util::Country.name_enabled?
     end
 
-    def language_enabled?
-    	WorldFlags::Util::Language.enabled?
+    def language_name_enabled?
+    	WorldFlags::Util::Language.name_enabled?
     end
+
+    def country_name_enable!
+    	WorldFlags::Util::Country.name_enable!
+    end
+
+    def language_name_enable!
+    	WorldFlags::Util::Language.name_enable!
+    end
+
+    def country_name_disable!
+    	WorldFlags::Util::Country.name_disable!
+    end
+
+    def language_name_disable!
+    	WorldFlags::Util::Language.name_disable!
+    end
+
 
 		def flag_text
  			@flag_text ||= '' #' &nbsp;'
