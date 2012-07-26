@@ -9,7 +9,7 @@ module WorldFlags
 					when String
 						options[:content]
 					else
-						WorldFlags.empty_string
+						WorldFlags.flag_text
 					end
 				end				
 

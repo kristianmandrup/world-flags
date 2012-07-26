@@ -17,57 +17,66 @@ describe WorldFlags::Helper::View do
     end
   end
 
-  it 'should translate flag code to locale' do
-    WorldFlags.locale('dk').to_s.should == 'da'
-  end
-
-  it "should be empty, with an empty block" do
-    output = flags_list do
+  describe '#flags_list' do
+    it "should be empty, with an empty block" do
+      output = flags_list do
+      end
+      output.should == "<ul class=\"f#{default_size}\"></ul>"
     end
-    output.should == "<ul class=\"f#{default_size}\"></ul>"
-  end
 
-  it "should work with alias :flag_list" do
-    output = flag_list do
+    it "should work with alias :flag_list" do
+      output = flag_list do
+      end
+      output.should == "<ul class=\"f#{default_size}\"></ul>"
     end
-    output.should == "<ul class=\"f#{default_size}\"></ul>"
-  end
 
-  it "should raise error when unsupported flag size" do
-    lambda do flags_list(8) { }    	
-    end.should raise_error
-  end
-
-  it "should set size to 16 or 32" do
-    output = flags_list 32 do
+    it "should raise error when unsupported flag size" do
+      lambda do flags_list(8) { }    	
+      end.should raise_error
     end
-    output.should == "<ul class=\"f32\"></ul>"
-  end
 
-  it "should list flags using Array" do
-    output = flags_list 32 do
-      flags [:ar, :gb]
+    it "should set size to 16 or 32" do
+      output = flags_list 32 do
+      end
+      output.should == "<ul class=\"f32\"></ul>"
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
   end
 
-  it "should list flags using args" do
-    output = flags_list 32 do
-      flags :ar, :gb
+  describe '#flags' do
+    it "should list flags using Array" do
+      output = flags_list 32 do
+        flags [:ar, :gb]
+      end
+      output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
-  end
 
-  it "should list flags using args and :with_semi" do
-    output = flags_list 32 do
-      flags :ar, :gb, :with_semi => true
+    it "should list flags using args" do
+      output = flags_list 32 do
+        flags :ar, :gb
+      end
+      output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb semi\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
+
+    it "should list flags using args and :with_semi" do
+      output = flags_list 32 do
+        flags :ar, :gb, :with_semi => true
+      end
+      output.should == "<ul class=\"f32\"><li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb semi\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
+    end
   end
 
-  it "should list flags" do
-    output = flag_title :ar, 'Argentina'
-    output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
+  describe '#flag' do
+    it "should create a flag tag" do
+      output = flag :ar, 'Argentina'
+      output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li>"
+    end
+  end
+
+  describe '#flag_title' do
+    it "should list flags" do
+      output = flag_title :ar, 'Argentina'
+      output.should == "<li class=\"flag ar selected\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\" title=\"Argentina\">&nbsp;</li>"
+    end
   end
 
   describe 'Countries' do

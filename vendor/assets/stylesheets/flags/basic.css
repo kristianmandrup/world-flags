@@ -1,33 +1,29 @@
-ul.flag {
+ul.flags {
   list-style-type: none;
   padding: 0;
   margin-left: 0;  
 }
 
-ul.flag .l {
+ul.flags .l {
   float: left;
 }
 
-.flag.border li.ss {
+.flag.border {
   border: 1px solid black;
 }
 
-.f16.flag li.ss {
+.sf16.flag {
   line-height: 16px;
 }
 
-.f24.flag li.ss {
+.f24.flag {
   line-height: 24px;
 }
 
-.f32.flag li.ss {
+.f32.flag {
   line-height: 32px; 
 }
 
-.f48.flag li.ss {
-  line-height: 32px; 
-}
-
-.f64.flag li.ss {
+.f64.flag {
   line-height: 64px; 
 }

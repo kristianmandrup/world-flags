@@ -84,6 +84,14 @@ Alternatively
 	= flag(:gb, 'England', :selected => true)
 ```
 
+Or using the locale mappings for the label...
+
+```haml
+= flag_list 32 do
+  = flag(:ar)
+  = flag(:gb, :selected => true)
+```
+
 Or using the #flag_code helper
 
 ```haml
@@ -110,7 +118,13 @@ Note: The `&nbsp; is needed in order for the background (flag icon) to have some
 The :title and :content can also be set to a string which is then displayed
 
 ```haml
-= flag :ar, ''Argentina', :title => 'Argentina country', :content => 'Argh!'
+= flag :ar, 'Argentina', :title => 'Argentina country', :content => 'Argh!'
+```
+
+or using the locale mapping...
+
+```haml
+= flag :ar, :title => 'Argentina country'
 ```
 
 To get content rendered for the <li>
@@ -128,7 +142,7 @@ You can customize the output by the flag view helper methods:
 ```ruby
 WorldFlags.flag_list_tag = :div
 WorldFlags.flag_tag = :span
-WorldFlags.empty_string = ''
+WorldFlags.flag_text = ''
 ```
 
 To do more customization, look at the `world_flags/helper/view/util.rb` file.
@@ -211,33 +225,33 @@ when :ip
 Look at the `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this repo.
 
 ```ruby
-ul.flag {
+ul.flags {
   list-style-type: none;
   padding: 0;
   margin-left: 0;  
 }
 
-ul.flag .l {
+ul.flags .l {
   float: left;
 }
 
-.flag.border li.ss {
+.flag.border {
   border: 1px solid black;
 }
 
-.sf16.flag li.ss {
+.sf16.flag {
   line-height: 16px;
 }
 
-.f24.flag li.ss {
+.f24.flag {
   line-height: 24px;
 }
 
-.f32.flag li.ss {
+.f32.flag {
   line-height: 32px; 
 }
 
-.f64.flag li.ss {
+.f64.flag {
   line-height: 64px; 
 }
 ```

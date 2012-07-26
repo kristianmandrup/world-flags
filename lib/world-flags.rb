@@ -15,10 +15,10 @@ module WorldFlags
 		attr_writer :active_locales
 		attr_writer :locale_flag_map
 
-		attr_writer :flag_tag, :flag_list_tag, :empty_string
+		attr_writer :flag_tag, :flag_list_tag, :flag_text
 
-		def empty_string
- 			@empty_string ||= '&nbsp;'
+		def flag_text
+ 			@flag_text ||= '' #' &nbsp;'
  		end
 
 		def flag_tag
@@ -26,7 +26,7 @@ module WorldFlags
 		end
 
 		def flag_list_tag
-			@flag_tag ||= :ul
+			@flag_list_tag ||= :ul
 		end
 
 		def config &block
