@@ -13,7 +13,21 @@ module WorldFlags
 		include Util
 
 		attr_writer :active_locales
-		attr_writer :locale_flag_map		
+		attr_writer :locale_flag_map
+
+		attr_writer :flag_tag, :flag_list_tag, :empty_string
+
+		def empty_string
+ 			@empty_string ||= '&nbsp;'
+ 		end
+
+		def flag_tag
+			@flag_tag ||= :li
+		end
+
+		def flag_list_tag
+			@flag_tag ||= :ul
+		end
 
 		def config &block
   		(block_given? && block.arity == 1) ? yield(self) : instance_eval(&block)

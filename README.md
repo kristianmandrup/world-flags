@@ -80,14 +80,14 @@ Alternatively
 
 ```haml
 = flag_list 32 do
-	= flag(:ar)
-	= flag(:gb, :selected => true)
+	= flag(:ar, 'Argentina')
+	= flag(:gb, 'England', :selected => true)
 ```
 
 Or using the #flag_code helper
 
 ```haml
-	= flag(:ar) + flag(:gb, :selected => flag_code(I18n.locale)
+	= flag(:ar, 'Argentina') + flag(:gb, 'England', :selected => flag_code(I18n.locale)
 ```
 
 You can also include the :with_semi => true option in order to have flags not selected displayed with the 'semi' class (semi-bright image)
@@ -110,7 +110,7 @@ Note: The `&nbsp; is needed in order for the background (flag icon) to have some
 The :title and :content can also be set to a string which is then displayed
 
 ```haml
-= flag :ar, :title => 'Argentina country', :content => 'Argh!'
+= flag :ar, ''Argentina', :title => 'Argentina country', :content => 'Argh!'
 ```
 
 To get content rendered for the <li>
@@ -120,6 +120,18 @@ To get content rendered for the <li>
 ```
 
 Note: There is also a #flag_selected? helper, which is (and/or can be) used to determine if the flag to be drawn should have the "selected" class set)
+
+## Customizing output
+
+You can customize the output by the flag view helper methods:
+
+```ruby
+WorldFlags.flag_list_tag = :div
+WorldFlags.flag_tag = :span
+WorldFlags.empty_string = ''
+```
+
+To do more customization, look at the `world_flags/helper/view/util.rb` file.
 
 ## Using localization
 
@@ -194,9 +206,46 @@ when :ip
   country_code_from_ip browser_ip
 ```
 
+## CSS
+
+Look at the `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this repo.
+
+```ruby
+ul.flag {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 0;  
+}
+
+ul.flag .l {
+  float: left;
+}
+
+.flag.border li.ss {
+  border: 1px solid black;
+}
+
+.sf16.flag li.ss {
+  line-height: 16px;
+}
+
+.f24.flag li.ss {
+  line-height: 24px;
+}
+
+.f32.flag li.ss {
+  line-height: 32px; 
+}
+
+.f64.flag li.ss {
+  line-height: 64px; 
+}
+```
+
 ## TODO for version 1.0
 
 Suggestions welcome ;)
+
 
 ## Enjoy
 

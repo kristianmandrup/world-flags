@@ -1,32 +1,33 @@
-#languages {
-	float: right;
+ul.flag {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 0;
 
-	ul {
-		list-style-type: none;
-		padding: 0;
-		margin-left: 0;
-	}
+	.l {
+  	float: left;
+	}  
+}
 
-	li.flag {
-		float:left;
-		border: 1px solid none;
-	}
+.flag.border li.ss {
+  border: 1px solid black;
+}
 
-	li.flag.selected {
-		float:left;
-		border: 1px solid black;
-	}
+.f16.flag li.ss {
+  line-height: 16px;
+}
 
-	.f32 li.flag {
-			padding-bottom: 6px;
-			padding-right: 26px;
-			margin-right: 8px;			
-	}
+.f24.flag li.ss {
+  line-height: 24px;
+}
 
-	.f64 li.flag {
-			padding-top: 12px;
-			padding-bottom: 24px;
-			padding-right: 60px;
-			margin-right: 8px;
-	}
+.f32.flag li.ss {
+  line-height: 32px; 
+}
+
+.f48.flag li.ss {
+  line-height: 32px; 
+}
+
+.f64.flag li.ss {
+  line-height: 64px; 
 }
