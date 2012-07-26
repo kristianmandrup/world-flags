@@ -1,4 +1,4 @@
-ul.flags {
+.flags {
   list-style-type: none;
   padding: 0;
   margin-left: 0;
@@ -8,8 +8,14 @@ ul.flags {
 	}  
 }
 
-.flag.border {
-  border: 1px solid black;
+.border {
+  .flag {
+    border: 1px solid black;
+  }
+
+  .flag.selected {
+    border: 1px solid black;
+  }
 }
 
 .f16.flag {

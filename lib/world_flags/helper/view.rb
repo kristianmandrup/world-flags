@@ -7,13 +7,14 @@ module WorldFlags
 				[16, 24, 32, 48, 64]
 			end
 
-			def flags_list size = 24, &block
+			def flags_list size = 24, options = {}, &block
 				raise "Missing block" unless block_given?
 				unless WorldFlags::Helper::View.flag_sizes.include?(size.to_i)
 					raise "Supported sizes are only #{WorldFlags::Helper::View.flag_sizes}" 
 				end
 				content = capture(&block)
-				content_tag WorldFlags.flag_list_tag, content, :class => "f#{size} flags"
+				xclass = options[:class] ? " #{options[:class]}" : ''
+				content_tag WorldFlags.flag_list_tag, content, :class => "f#{size} flags#{xclass}"
 			end
 			alias_method :flag_list, :flags_list
 

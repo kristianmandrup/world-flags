@@ -158,10 +158,11 @@ Use danish (da) country labels
 	= flags :ar, :br, :gb, :country => :da
 ```
 
-Use language labels for current locale
+Use language labels for current locale.
+Note: Also use border class (see CSS below)
 
 ```haml
-= flag_list 32 do
+= flag_list 32, :class => 'border' do
 	= flags :ar, :br, :gb, :language => I18n.locale
 ```
 
@@ -222,24 +223,28 @@ when :ip
 
 ## CSS
 
-Look at the `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this repo.
+The `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this repo defines the basic styling of flags. Override these styles to fit your needs.
 
 ```ruby
-ul.flags {
+.flags {
   list-style-type: none;
   padding: 0;
   margin-left: 0;  
 }
 
-ul.flags .l {
+.flags .l {
   float: left;
 }
 
-.flag.border {
+.border .flag {
+  border: 1px solid;  
+}
+
+.border .flag.selected {
   border: 1px solid black;
 }
 
-.sf16.flag {
+.f16.flag {
   line-height: 16px;
 }
 
@@ -249,6 +254,10 @@ ul.flags .l {
 
 .f32.flag {
   line-height: 32px; 
+}
+
+.f48.flag {
+  line-height: 48px; 
 }
 
 .f64.flag {

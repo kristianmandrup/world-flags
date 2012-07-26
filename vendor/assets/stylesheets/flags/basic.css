@@ -1,18 +1,22 @@
-ul.flags {
+.flags {
   list-style-type: none;
   padding: 0;
   margin-left: 0;  
 }
 
-ul.flags .l {
+.flags .l {
   float: left;
 }
 
-.flag.border {
+.border .flag {
+  border: 1px solid;  
+}
+
+.border .flag.selected {
   border: 1px solid black;
 }
 
-.sf16.flag {
+.f16.flag {
   line-height: 16px;
 }
 
@@ -22,6 +26,10 @@ ul.flags .l {
 
 .f32.flag {
   line-height: 32px; 
+}
+
+.f48.flag {
+  line-height: 48px; 
 }
 
 .f64.flag {
