@@ -1,8 +1,10 @@
 source :rubygems
 
-gem "mechanize"
-gem "resourceful",  "~> 1.0.1"
-gem "rubyzip",      ">= 0.9.7"
+# for geoip generator
+# gem "mechanize"
+# gem "resourceful",  "~> 1.0.1"
+# gem "rubyzip",      ">= 0.9.6"
+
 gem 'hashie',       '~> 1.2'
 gem 'i18n',         '~> 0.6'
 
