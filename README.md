@@ -10,6 +10,10 @@ This engine/gem can be used with Rails 3+. WorldFlags includes css files for fla
 
 The sprites contains all the main country flags in the world.
 
+You can use the [sprite generator](http://spritegen.website-performance.org/) to generate sprites for other icons sets and follow the pattern for this gem.
+
+You can also see the [pictos-icons](https://github.com/kristianmandrup/pictos-icons) gem for another example using this model.
+
 ## Customizing Flag sprite size
 
 *Resize images:*
@@ -29,6 +33,14 @@ Edit the last part where ResizeCss is initialized
 `resizer = ResizeCss.new 32, 24`
 
 The last argument (here 24) is the flag size used for calculating new positioning in the css files generated.
+
+The ResizeCSS initializer takes many additional options, including :auto-exec to auto convert the sprite using ImageMagick.
+
+`resizer = ResizeCss.new 32, 24, auto-exec: true`
+
+See the code for more details on how to adjust to fit your needs.
+
+Note: Needs some love in order to reflect latest stylesheet design.
 
 ## Configuration
 
@@ -249,27 +261,37 @@ The `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this rep
   border: 1px solid;  
 }
 
-.border .flag.selected {
+.border .selected {
   border: 1px solid black;
 }
 
 .f16.flag {
+  width: 16px;
+  height: 16px;
   line-height: 16px;
 }
 
 .f24.flag {
+  width: 24px;
+  height: 24px;
   line-height: 24px;
 }
 
 .f32.flag {
+  width: 32px;
+  height: 32px;
   line-height: 32px; 
 }
 
 .f48.flag {
+  width: 48px;
+  height: 48px;
   line-height: 48px; 
 }
 
 .f64.flag {
+  width: 64px;
+  height: 64px;
   line-height: 64px; 
 }
 ```
@@ -277,7 +299,6 @@ The `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this rep
 ## TODO for version 1.0
 
 Suggestions welcome ;)
-
 
 ## Enjoy
 
