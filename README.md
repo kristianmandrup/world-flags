@@ -27,7 +27,7 @@ Use ImageMagick to resize, using 32px version as base
 *Generate adsjusted css files:*
 
 The CSS files must have positioning adjusted to fit the new sprites:
-Use the resizing tool in `lib/world-flags/tools/resize-css.rb`
+Use the resizing tool in `lib/world-flags/tools/resize_css.rb`
 Edit the last part where ResizeCss is initialized
 
 `resizer = ResizeCss.new 32, 24`
@@ -40,7 +40,11 @@ The ResizeCSS initializer takes many additional options, including :auto-exec to
 
 See the code for more details on how to adjust to fit your needs.
 
-Note: Needs some love in order to reflect latest stylesheet design.
+Run the resizer
+
+`$ ruby resize_css.rb`
+
+TODO: refactor resize css tool into rake task or similar that takes arguments!
 
 ## Configuration
 
@@ -51,6 +55,8 @@ In you asset `application.css` manifest file:
  *= require_self
  *= require_tree .
  *= require flags/basic
+ *= require flags/flags16
+ *= require flags/flags16_semi
  *= require flags/flags32
  *= require flags/flags32_semi
 */
