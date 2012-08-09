@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.6.1.1"
+  s.version = "0.6.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = "2012-07-30"
+  s.date = "2012-08-09"
   s.description = "Use world flag icons in your Rails app"
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
@@ -100,6 +100,7 @@ Gem::Specification.new do |s|
     "vendor/assets/stylesheets/flags/flags48-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags48.css.erb",
     "vendor/assets/stylesheets/flags/flags48.css.scss.erb",
+    "vendor/assets/stylesheets/flags/flags64-semi.css.erb",
     "vendor/assets/stylesheets/flags/flags64-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags64.css.scss.erb",
     "world-flags.gemspec"
