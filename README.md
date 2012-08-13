@@ -12,7 +12,10 @@ The sprites contains all the main country flags in the world.
 
 You can use the [sprite generator](http://spritegen.website-performance.org/) to generate sprites for other icons sets and follow the pattern for this gem.
 
-You can also see the [pictos-icons](https://github.com/kristianmandrup/pictos-icons) gem for another example using this model.
+You can also see the [pictos-icons](https://github.com/kristianmandrup/pictos-icons)  
+or [social_icons](https://github.com/kristianmandrup/social_icons) gems for other examples using this model.
+
+Also check out the [world-flag-packs](https://github.com/kristianmandrup/world-flag-packs) repo, that contains multiple flag packs ready for use with `world-flags`.
 
 ## Customizing Flag sprite size
 
