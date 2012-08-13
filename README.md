@@ -15,7 +15,7 @@ You can use the [sprite generator](http://spritegen.website-performance.org/) to
 You can also see the [pictos-icons](https://github.com/kristianmandrup/pictos-icons)  
 or [social_icons](https://github.com/kristianmandrup/social_icons) gems for other examples using this model.
 
-Also check out the [world-flag-packs](https://github.com/kristianmandrup/world-flag-packs) repo, that contains multiple flag packs ready for use with `world-flags`.
+Also check out the [world-flag-packs](https://github.com/kristianmandrup/world-flag-packs) repo, that contains multiple flag packs ready for use with `world-flags.
 
 ## Customizing Flag sprite size
 
