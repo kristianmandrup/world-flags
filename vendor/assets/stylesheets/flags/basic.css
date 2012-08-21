@@ -19,29 +19,24 @@
 .f16.flag {
   width: 16px;
   height: 16px;
-  line-height: 16px;
 }
 
 .f24.flag {
   width: 24px;
   height: 24px;
-  line-height: 24px;
 }
 
 .f32.flag {
   width: 32px;
   height: 32px;
-  line-height: 32px; 
 }
 
 .f48.flag {
   width: 48px;
   height: 48px;
-  line-height: 48px; 
 }
 
 .f64.flag {
   width: 64px;
   height: 64px;
-  line-height: 64px; 
 }

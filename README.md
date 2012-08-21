@@ -59,9 +59,7 @@ In you asset `application.css` manifest file:
  *= require_tree .
  *= require flags/basic
  *= require flags/flags16
- *= require flags/flags16_semi
  *= require flags/flags32
- *= require flags/flags32_semi
 */
 ```
 
@@ -277,32 +275,14 @@ The `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this rep
 .f16.flag {
   width: 16px;
   height: 16px;
-  line-height: 16px;
 }
 
 .f24.flag {
   width: 24px;
   height: 24px;
-  line-height: 24px;
 }
 
-.f32.flag {
-  width: 32px;
-  height: 32px;
-  line-height: 32px; 
-}
-
-.f48.flag {
-  width: 48px;
-  height: 48px;
-  line-height: 48px; 
-}
-
-.f64.flag {
-  width: 64px;
-  height: 64px;
-  line-height: 64px; 
-}
+ /* and so on ... */
 ```
 
 ## TODO for version 1.0
