@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "world-flags"
-  s.version = "0.6.2.1"
+  s.version = "0.6.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Kristian Mandrup"]
-  s.date = "2012-08-09"
+  s.date = "2012-08-21"
   s.description = "Use world flag icons in your Rails app"
   s.email = "kmandrup@gmail.com"
   s.extra_rdoc_files = [
@@ -84,24 +84,14 @@ Gem::Specification.new do |s|
     "vendor/assets/javascripts/world_flags/url_helper.js",
     "vendor/assets/stylesheets/flags/basic.css",
     "vendor/assets/stylesheets/flags/basic.scss.css",
-    "vendor/assets/stylesheets/flags/flags16-semi.css.erb",
-    "vendor/assets/stylesheets/flags/flags16-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags16.css.erb",
     "vendor/assets/stylesheets/flags/flags16.css.scss.erb",
-    "vendor/assets/stylesheets/flags/flags24-semi.css.erb",
-    "vendor/assets/stylesheets/flags/flags24-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags24.css.erb",
     "vendor/assets/stylesheets/flags/flags24.css.scss.erb",
-    "vendor/assets/stylesheets/flags/flags32-semi.css.erb",
-    "vendor/assets/stylesheets/flags/flags32-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags32.css.erb",
     "vendor/assets/stylesheets/flags/flags32.css.scss.erb",
-    "vendor/assets/stylesheets/flags/flags48-semi.css.erb",
-    "vendor/assets/stylesheets/flags/flags48-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags48.css.erb",
     "vendor/assets/stylesheets/flags/flags48.css.scss.erb",
-    "vendor/assets/stylesheets/flags/flags64-semi.css.erb",
-    "vendor/assets/stylesheets/flags/flags64-semi.css.scss.erb",
     "vendor/assets/stylesheets/flags/flags64.css.scss.erb",
     "world-flags.gemspec"
   ]
