@@ -51,7 +51,7 @@ TODO: refactor resize css tool into rake task or similar that takes arguments!
 
 ## Configuration
 
-In you asset `application.css` manifest file:
+In your asset `application.css` manifest file:
 
 ```css
 /*
