@@ -18,28 +18,28 @@
   }
 }
 
-.f16.flag {
+.f16 .flag {
   width: 16px;
   height: 16px;
 }
 
-.f24.flag {
+.f24 .flag {
   width: 24px;
   height: 24px;
 }
 
-.f32.flag {
+.f32 .flag {
   width: 32px;
   height: 32px;
 }
 
-.f48.flag {
+.f48 .flag {
   width: 48px;
   height: 48px;
 }
 
-.f64.flag {
+.f64 .flag {
   width: 64px;
   height: 64px;
-  line-height: 64px; 
+  line-height: 64px;
 }
