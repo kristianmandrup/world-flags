@@ -48,6 +48,13 @@ module WorldFlags
         self.languages_map = nil
         self.hashied_languages = nil
         self.languages = nil
+
+        self.flag_text = ''
+        self.flag_tag = :li
+        self.flag_list_tag = :ul
+
+        self.country_name_enable!
+        self.language_name_enable!
       end
 
       def default_code_used
