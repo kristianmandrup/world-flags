@@ -44,7 +44,7 @@ describe WorldFlags::Helper::View do
       output = flags_list 32 do
         flags [:ar]
       end
-      output.should == "<div class=\"f32 flags\"><span class=\"flag ar\" data-cc=\"ar\" data-locale=\"ar\"></span></div>"
+      output.should == "<ul class=\"f32 flags\"><li class=\"flag ar\" data-cc=\"ar\" data-locale=\"ar\"></li></ul>"
     end
   end
 end

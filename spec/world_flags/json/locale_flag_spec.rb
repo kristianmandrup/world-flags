@@ -23,6 +23,6 @@ describe WorldFlags::Helper::View do
     output = flags_list 32 do
       flags [:ar, :gb]
     end
-    output.should == "<ul class=\"f32\"><li class=\"flag ar\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\">&nbsp;</li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\">&nbsp;</li></ul>"
+    output.should == "<ul class=\"f32 flags\"><li class=\"flag ar\" data-cc=\"ar\" data-country_name=\"Argentina\" data-language_name=\"Spanish\" data-locale=\"ar\"></li><li class=\"flag gb\" data-cc=\"gb\" data-country_name=\"United Kingdom\" data-language_name=\"British English\" data-locale=\"gb\"></li></ul>"
   end
 end
