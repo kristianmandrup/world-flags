@@ -136,6 +136,10 @@ See `app/assets/images/flags/fixes`
 
 Please help update the style mappings under `app/assets/stylesheets` to reflect these new sprite maps correctly :)
 
+Note that these flag maps were hacked together rather quickly and may contain bugs (untested). Should be easy to asjust using sprite generator with flag images under `flags/extra`, (or your flag images) and then adjust the stylesheet as well to map directly on background co-ordinates.
+
+Note: The sprite generator should also help calculate correct sprite borders.
+
 ## Rendering
 
 Flags will be rendered in HTML as:
