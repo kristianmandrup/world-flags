@@ -3,16 +3,18 @@
 This engine/gem can be used with Rails 3+. WorldFlags includes css files for flags of the following pixel sizes:
 
 * 16
-* 24 
+* 24
 * 32
 * 48
-* 64 
+* 64
 
 The sprites contains all the main country flags in the world.
 
+## Sprite generators
+
 You can use the [sprite generator](http://spritegen.website-performance.org/) to generate sprites for other icons sets and follow the pattern for this gem.
 
-You can also see the [pictos-icons](https://github.com/kristianmandrup/pictos-icons)  
+You can also see the [pictos-icons](https://github.com/kristianmandrup/pictos-icons)
 or [social_icons](https://github.com/kristianmandrup/social_icons) gems for other examples using this model.
 
 Also check out the [world-flag-packs](https://github.com/kristianmandrup/world-flag-packs) repo, that contains multiple flag packs ready for use with `world-flags.
@@ -68,6 +70,48 @@ The `flags/basic` stylesheet sets up a basic css for use with borders around the
 There is also support for semi-transparent flags. This can be used to fade certain flags while having the selected flag (or hovered over flag) in full brightness.
 
 Simply add or remove the "semi" class for the flag to adjust the brightness level (fx for selection/mouse over).
+
+## Flag Fixes (hacks!)
+
+Certain cases have been "flagged" (pun intended!), where a flag is either missing, has changed or is wrong in some manner.
+
+We currently have fixes for the following:
+
+* Libya `ly` (color fix)
+* Christmas Islands (missing)
+* British Indian Ocean Territory (missing)
+
+Feel free to flag more ;)
+
+Ideally these flag fixes should be included in the sprite maps, using the sprite generator and (updated?) flag packs such as from [world-flag-packs](https://github.com/kristianmandrup/world-flag-packs)
+
+As a quick fix, you can include stylesheets overrides like the following:
+
+```css
+/*
+ *= require_self
+ *= require_tree .
+ *= require flags/basic
+ *= require flags/flags16
+ *= require flags/flags32
+ *= require flags/fixes/libya
+ *= require flags/fixes/biot
+ *= require flags/fixes/xmas-islands
+*/
+```
+
+To include override stylesheet with all the fixes, use `flags/fixes/_all`
+
+```css
+/*
+ *= require flags/basic
+ *= require flags/flags16
+ *= require flags/flags32
+ *= require flags/fixes/_all
+ */
+```
+
+This is only a stop gap measure. Please help add flags that match the other flag packs, create new sprite maps or contribute in other ways to make these fixes better. Cheers :)
 
 ## Rendering
 
@@ -216,7 +260,7 @@ Include the 'geoip' gem if you want to detect locale based on browser IP locatio
 [GeoIP country lite](http://www.maxmind.com/app/geolitecountry)
 [GeoIP](http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz)
 
-Extract and put latest `GeoIP.dat` file in `db/GeoIP.dat` of your Rails app. Alternatively set location via `WorldFlags.geo_ip_db_path = path`. 
+Extract and put latest `GeoIP.dat` file in `db/GeoIP.dat` of your Rails app. Alternatively set location via `WorldFlags.geo_ip_db_path = path`.
 
 The _world-flags_ engine comes pre-packaged with a recent version of `GeoIP.dat` in the `db` folder of the engine itself.
 
@@ -257,7 +301,7 @@ The `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this rep
 .flags {
   list-style-type: none;
   padding: 0;
-  margin-left: 0;  
+  margin-left: 0;
 }
 
 .flags .l {
@@ -265,7 +309,7 @@ The `basic.css` file in the `vendor/assets/stylesheets/flags` folder of this rep
 }
 
 .border .flag {
-  border: 1px solid;  
+  border: 1px solid;
 }
 
 .border .selected {
