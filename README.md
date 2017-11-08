@@ -111,7 +111,18 @@ To include override stylesheet with all the fixes, use `flags/fixes/_all`
  */
 ```
 
-This is only a stop gap measure. Please help add flags that match the other flag packs, create new sprite maps or contribute in other ways to make these fixes better. Cheers :)
+This is only a stop gap measure. The fix takes the following form, where each sizexflag combination uses a specific flag image as background, and positioned to top left `0 0px` and using `!important` to force override.
+
+```css
+.f24 .ly {
+  background:url(<%= asset_path 'flags/extra/Libya-24.png' %>) no-repeat !important;
+  background-position:0 0px !important;
+}
+```
+
+Currently untested. Might need the additional `.flag` as well!?
+
+Please help add flags that match the other flag packs, create new sprite maps or contribute in other ways to make these fixes better. Cheers :)
 
 ## Rendering
 
