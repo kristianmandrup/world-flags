@@ -12,7 +12,7 @@ The sprites contains all the main country flags in the world.
 
 ## Sprite generators
 
-You can use the [sprite generator](http://spritegen.website-performance.org/) to generate sprites for other icons sets and follow the pattern for this gem.
+You can use the [sprite generator](https://spritegen.website-performance.org/) to generate sprites for other icons sets and follow the pattern for this gem.
 
 You can also see the [pictos-icons](https://github.com/kristianmandrup/pictos-icons)
 or [social_icons](https://github.com/kristianmandrup/social_icons) gems for other examples using this model.
@@ -123,6 +123,18 @@ This is only a stop gap measure. The fix takes the following form, where each si
 Currently untested. Might need the additional `.flag` as well!?
 
 Please help add flags that match the other flag packs, create new sprite maps or contribute in other ways to make these fixes better. Cheers :)
+
+## Fixed new flag maps
+
+Update: Used sprite generator to generate flag maps for the fixed flags:
+See `app/assets/images/flags/fixes`
+
+* `flags-16.png`
+* `flags-24.png`
+* `flags-32.png`
+* `flags-48.png`
+
+Please help update the style mappings under `app/assets/stylesheets` to reflect these new sprite maps correctly :)
 
 ## Rendering
 

@@ -1,0 +1,23 @@
+.sprite {
+    background-image: url(spritesheet.png);
+    background-repeat: no-repeat;
+    display: block;
+}
+
+.sprite-British_Indian_Ocean_Territory-64 {
+    width: 64px;
+    height: 64px;
+    background-position: -2px -2px;
+}
+
+.sprite-Christmas-Islands-64 {
+    width: 64px;
+    height: 64px;
+    background-position: -70px -2px;
+}
+
+.sprite-Libya-64 {
+    width: 64px;
+    height: 64px;
+    background-position: -138px -2px;
+}
