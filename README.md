@@ -63,9 +63,19 @@ In your asset `application.css` manifest file:
 /*
  *= require_self
  *= require_tree .
- *= require flags/basic
- *= require flags/flags16
- *= require flags/flags32
+ *= require flags/css/basic
+ *= require flags/css/flags16
+ *= require flags/css/flags32
+*/
+```
+
+To use scss (SASS)
+
+```css
+/*
+ *= require flags/scss/basic
+ *= require flags/scss/flags16
+ *= require flags/scss/flags32
 */
 ```
 
@@ -98,20 +108,20 @@ As a quick fix, you can include stylesheets overrides like the following:
  *= require flags/basic
  *= require flags/flags16
  *= require flags/flags32
- *= require flags/fixes/libya
- *= require flags/fixes/biot
- *= require flags/fixes/xmas-islands
+ *= require flags/libya
+ *= require flags/biot
+ *= require flags/xmas-islands
 */
 ```
 
-To include override stylesheet with all the fixes, use `flags/fixes/_all`
+To include override stylesheet with all the fixes, use `flags/fixes`
 
 ```css
 /*
  *= require flags/basic
  *= require flags/flags16
  *= require flags/flags32
- *= require flags/fixes/_all
+ *= require flags/fixes
  */
 ```
 
