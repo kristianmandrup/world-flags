@@ -3,7 +3,10 @@ module WorldFlags
     class Engine < ::Rails::Engine        
     	initializer "setup for rails" do |app|
     		ActionView::Base.send :include, WorldFlags::Helper::View
-        app.config.assets.precompile << %r(flags/flag\d\d(?:_semi)?\.png$)
+        Helper::View.flag_sizes.each do |size|
+          app.config.assets.precompile << "flags/flags#{size}.png"
+          app.config.assets.precompile << "flags/flags#{size}_semi.png"
+        end
       end
     end
   end
