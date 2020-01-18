@@ -5,6 +5,8 @@ coverage.data
 # rdoc generated
 rdoc
 
+vendor
+
 # yard generated
 doc
 .yardoc
