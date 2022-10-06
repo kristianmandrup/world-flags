@@ -48,7 +48,7 @@ GEM
     hashie (2.0.5)
     highline (2.0.3)
     hike (1.2.3)
-    i18n (0.6.8)
+    i18n (0.8.0)
     jeweler (2.3.5)
       builder
       bundler (>= 1.0)
